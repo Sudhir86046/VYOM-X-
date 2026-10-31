@@ -1,0 +1,497 @@
+/* =========================================
+   BASE STYLES & WRAPPER
+   ========================================= */
+.mission-cinematic-wrapper {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #02040a; 
+  color: #e0e0e0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow-x: hidden;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* =========================================
+   SCROLL ANIMATIONS
+   ========================================= */
+.fade-up {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.fade-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =========================================
+   1. HERO SECTION (SPLIT LAYOUT)
+   ========================================= */
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  padding: 120px 2rem 50px 2rem;
+}
+
+/* Starfield Background */
+.stars-bg {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-image: 
+    radial-gradient(2px 2px at 20px 30px, #ffffff, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 40px 70px, #00d4ff, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 90px 40px, #ffffff, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 160px 120px, #ffffff, rgba(0,0,0,0));
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  animation: twinkleStars 4s infinite alternate;
+  z-index: 1;
+}
+
+/* Rotating Earth */
+.earth-container {
+  position: absolute;
+  bottom: -250px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 800px;
+  height: 800px;
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.earth-sphere {
+  width: 100%; height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #1b2735, #090a0f);
+  box-shadow: inset -50px -50px 100px rgba(0,0,0,0.9), inset 20px 20px 80px rgba(0, 212, 255, 0.2);
+  animation: rotateEarth 60s linear infinite;
+}
+
+.earth-glow {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  border-radius: 50%;
+  box-shadow: 0 0 80px 20px rgba(0, 212, 255, 0.3);
+}
+
+/* 🚀 Hero Content: Split Layout (Image Left, Text Right) */
+.hero-content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: row; 
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1400px;
+  gap: 4rem;
+}
+
+.hero-image-container {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.hero-text-container {
+  flex: 1;
+  text-align: left; 
+  padding-left: 2rem;
+}
+
+.hero-jet {
+  width: 100%;
+  max-width: 650px;
+  filter: drop-shadow(0 0 30px rgba(0, 212, 255, 0.6));
+  animation: floatDrone 6s ease-in-out infinite;
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+}
+
+.hero-title {
+  font-size: clamp(2.5rem, 4vw, 4rem); 
+  font-weight: 900;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+}
+
+.glow-text {
+  background: linear-gradient(90deg, #00d4ff, #a1c4fd);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 25px rgba(0, 212, 255, 0.8));
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  color: #a0a8c0;
+  letter-spacing: 1px;
+  line-height: 1.6;
+}
+
+/* =========================================
+   2. SPLIT FEATURE SECTIONS
+   ========================================= */
+.feature-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4rem;
+  padding: 8rem 4rem;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+/* Alternate Layout */
+.feature-section.reverse {
+  flex-direction: row-reverse;
+}
+
+.text-content {
+  flex: 1;
+}
+
+.text-content h2 {
+  font-size: 2.5rem;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.text-content p {
+  font-size: 1.1rem;
+  color: #8892a0;
+  line-height: 1.8;
+}
+
+.image-content {
+  flex: 1;
+  position: relative;
+}
+
+.feature-img {
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 212, 255, 0.2);
+  transition: transform 0.5s ease;
+}
+
+.feature-img:hover {
+  transform: scale(1.02);
+}
+
+.hud-badge {
+  display: inline-block;
+  background: rgba(0, 212, 255, 0.1);
+  border: 1px solid #00d4ff;
+  color: #00d4ff;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin-bottom: 1rem;
+  box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
+  animation: pulseBadge 2s infinite alternate;
+}
+
+/* =========================================
+   3. NEXT 5 YEARS ROADMAP BOX (Half-Half)
+   ========================================= */
+.roadmap-box-section {
+  padding: 6rem 4rem;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.roadmap-box {
+  display: flex;
+  background: rgba(10, 14, 39, 0.6);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  border-radius: 20px;
+  overflow: hidden;
+  backdrop-filter: blur(15px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+/* Left Half */
+.roadmap-left {
+  flex: 1;
+  padding: 4rem;
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), transparent);
+  border-right: 1px solid rgba(0, 212, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.roadmap-left h2 {
+  font-size: 2.5rem;
+  color: #fff;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
+.years-text {
+  font-size: 2rem;
+  color: #00d4ff;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 0 15px rgba(0, 212, 255, 0.5);
+}
+
+.roadmap-desc {
+  color: #a0a8c0;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* Right Half */
+.roadmap-right {
+  flex: 1.2;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.milestone {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.year {
+  background: rgba(0, 212, 255, 0.1);
+  border: 1px solid #00d4ff;
+  color: #00d4ff;
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  min-width: 70px;
+  text-align: center;
+}
+
+.milestone-info h4 {
+  color: #fff;
+  font-size: 1.2rem;
+  margin-bottom: 0.3rem;
+}
+
+.milestone-info p {
+  color: #8892a0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Ultimate Goal Highlight */
+.milestone.ultimate .year {
+  background: #00d4ff;
+  color: #000;
+  box-shadow: 0 0 15px #00d4ff;
+}
+.milestone.ultimate .milestone-info h4 {
+  color: #00d4ff;
+}
+
+/* =========================================
+   4. FAQ SECTION
+   ========================================= */
+.faq-section {
+  padding: 6rem 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #fff;
+  margin-bottom: 3rem;
+  text-transform: uppercase;
+}
+
+.faq-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.faq-item {
+  background: rgba(10, 14, 39, 0.6);
+  border: 1px solid rgba(0, 212, 255, 0.15);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.faq-item:hover {
+  border-color: rgba(0, 212, 255, 0.4);
+  background: rgba(0, 212, 255, 0.05);
+}
+
+.faq-item.active {
+  border-color: #00d4ff;
+  background: rgba(0, 212, 255, 0.08);
+  box-shadow: 0 5px 20px rgba(0, 212, 255, 0.1);
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+}
+
+.faq-question h3 {
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.faq-icon {
+  color: #00d4ff;
+  font-size: 1.5rem;
+  font-weight: bold;
+  transition: transform 0.3s;
+}
+
+.faq-item.active .faq-icon {
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+  padding: 0 1.5rem;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 200px;
+  padding-bottom: 1.5rem;
+}
+
+.faq-answer p {
+  color: #a0a8c0;
+  line-height: 1.6;
+}
+
+/* =========================================
+   KEYFRAMES
+   ========================================= */
+@keyframes twinkleStars {
+  0% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+
+@keyframes rotateEarth {
+  0% { background-position: 0 0; }
+  100% { background-position: 400px 0; }
+}
+
+@keyframes floatDrone {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes pulseBadge {
+  0% { box-shadow: 0 0 10px rgba(0, 212, 255, 0.2); }
+  100% { box-shadow: 0 0 25px rgba(0, 212, 255, 0.6); }
+}
+
+/* =========================================
+   📱 RESPONSIVE DESIGN
+   ========================================= */
+@media (max-width: 1024px) {
+  .feature-section {
+    padding: 6rem 2rem;
+    gap: 2rem;
+  }
+  
+  .roadmap-box {
+    flex-direction: column;
+  }
+  
+  .roadmap-left {
+    border-right: none;
+    border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+    padding: 3rem 2rem;
+    text-align: center;
+  }
+  
+  .roadmap-right {
+    padding: 3rem 2rem;
+  }
+}
+
+/* Tablet & Mobile Hero Layout */
+@media (max-width: 900px) {
+  .hero-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .hero-image-container {
+    justify-content: center;
+  }
+
+  .hero-text-container {
+    padding-left: 0;
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .feature-section, .feature-section.reverse {
+    flex-direction: column;
+    text-align: center;
+    padding: 4rem 1.5rem;
+  }
+  
+  .text-content h2 {
+    font-size: 2rem;
+  }
+  
+  .milestone {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .year {
+    align-self: flex-start;
+  }
+  
+  .faq-question h3 {
+    font-size: 1rem;
+  }
+}
+
+/* Accessibility: Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .hero-jet, .feature-img, .earth-sphere, .hud-badge {
+    animation: none;
+  }
+  .fade-up {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

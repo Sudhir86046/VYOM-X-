@@ -1,0 +1,17 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  /* 🌌 स्पेस बैकग्राउंड जो पूरी वेबसाइट के पीछे एकदम स्टेबल रहेगा */
+  background: linear-gradient(rgba(5, 9, 20, 0.6), rgba(5, 9, 20, 0.6)), 
+              url('https://images.unsplash.com/photo-1462331940025-496dfbfc7564?q=80&w=2048&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* स्क्रॉल करने पर बैकग्राउंड नहीं हिलेगा */
+  background-color: #050914;
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}

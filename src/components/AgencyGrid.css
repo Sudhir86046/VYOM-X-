@@ -1,0 +1,124 @@
+.agency-section {
+  padding: 2rem 2rem 4rem 2rem; /* 🚀 साइड पैडिंग 2rem (हीरो सेक्शन जैसा) */
+  position: relative;
+  min-height: 100vh;
+}
+
+/* 🟦 9 बॉक्स का ग्रिड */
+.agency-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem; /* बॉक्स के बीच की दूरी */
+  max-width: 1400px; /* 🚀 चौड़ाई हीरो सेक्शन जितनी ही (1400px) */
+  width: 100%; /* 🚀 100% चौड़ाई */
+  margin: 0 auto;
+}
+
+.agency-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 🔲 वीडियो बॉक्स */
+.video-box {
+  position: relative;
+  width: 100%;
+  height: 220px; 
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  display: block;
+  text-decoration: none;
+  backdrop-filter: blur(10px); 
+}
+
+.video-thumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+
+/* ▶️ प्ले बटन */
+.play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.5);
+  width: 60px;
+  height: 60px;
+  background: #ff0000;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  opacity: 0;
+  transition: all 0.3s ease;
+  padding-left: 5px;
+  box-shadow: 0 0 15px #ff0000;
+}
+
+/* 🖱️ हॉवर इफ़ेक्ट */
+.video-box:hover {
+  transform: translateY(-8px);
+  border-color: #00d4ff;
+  box-shadow: 0 15px 30px rgba(0, 212, 255, 0.4);
+}
+
+.video-box:hover .video-thumbnail {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.video-box:hover .play-btn {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* 📝 टेक्स्ट */
+.agency-info {
+  margin-top: 1.2rem;
+  text-align: center;
+}
+
+.agency-name {
+  font-size: 1.4rem; 
+  color: #00d4ff;
+  margin: 0;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+}
+
+.country-name {
+  font-size: 1rem;
+  color: #e0e0e0;
+  margin: 0.3rem 0 0 0;
+  letter-spacing: 1px;
+}
+
+/* 📱 मोबाइल रिस्पॉन्सिव */
+@media (max-width: 1024px) {
+  .agency-grid {
+    grid-template-columns: repeat(2, 1fr); /* टैबलेट पर 2 कॉलम */
+  }
+}
+
+@media (max-width: 768px) {
+  .agency-section {
+    padding: 2rem 1rem 4rem 1rem; /* मोबाइल पर कम पैडिंग */
+  }
+  .agency-grid {
+    grid-template-columns: 1fr; /* मोबाइल पर 1 कॉलम */
+  }
+  .video-box {
+    height: 200px;
+  }
+}

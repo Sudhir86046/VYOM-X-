@@ -1,0 +1,254 @@
+/* =========================================
+   BASE WRAPPER (Isolated for About Page)
+   ========================================= */
+.about-page-container {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #050914;
+  color: #e0e0e0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow-x: hidden;
+  padding-top: 100px; /* Navbar space */
+  padding-bottom: 50px;
+}
+
+.about-page-container h1, 
+.about-page-container h2, 
+.about-page-container h3, 
+.about-page-container h4 { 
+  color: #ffffff; 
+  margin-bottom: 1rem; 
+}
+
+.about-page-container p { 
+  line-height: 1.6; 
+  color: #a0a8c0; 
+}
+
+.about-header {
+  text-align: center;
+  margin-bottom: 4rem;
+  animation: slideDown 0.8s ease-out forwards;
+}
+
+.about-header h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  background: linear-gradient(to right, #ffffff, #00d4ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.3));
+}
+
+.about-header p {
+  color: #00d4ff;
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.about-section {
+  padding: 4rem 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.about-section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #00d4ff;
+  margin-bottom: 3rem;
+  text-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+  letter-spacing: 1px;
+}
+
+.text-left { text-align: left; }
+
+/* BUTTONS */
+.about-btn-primary {
+  padding: 12px 30px;
+  border-radius: 30px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: none;
+  background: #00d4ff;
+  color: #000;
+  box-shadow: 0 0 15px rgba(0, 212, 255, 0.4);
+  text-decoration: none;
+  display: inline-block;
+}
+.about-btn-primary:hover { background: #fff; box-shadow: 0 0 25px #00d4ff; transform: translateY(-2px); }
+
+/* 3. HOW WE EXPLORE CARDS */
+.about-grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; }
+.about-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+
+.about-card, .about-discovery-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  border-radius: 15px;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.about-card:hover, .about-discovery-card:hover {
+  transform: translateY(-8px);
+  border-color: #00d4ff;
+  box-shadow: 0 15px 30px rgba(0, 212, 255, 0.2);
+}
+
+.about-card-img { width: 100%; height: 180px; object-fit: cover; }
+.about-card-body { padding: 1.5rem; }
+.about-card-body h3 { font-size: 1.2rem; margin-bottom: 0.8rem; }
+.about-card-body p { font-size: 0.9rem; margin-bottom: 1rem; }
+
+.about-read-more {
+  background: transparent;
+  border: none;
+  color: #00d4ff;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0;
+  font-size: 0.9rem;
+  transition: color 0.3s;
+}
+.about-read-more:hover { color: #fff; }
+
+/* 4. WHY SPACE MATTERS */
+.about-why-section { display: flex; align-items: center; gap: 4rem; }
+.about-why-content { flex: 1; }
+.about-why-list { list-style: none; padding: 0; margin-top: 2rem; }
+.about-why-list li { margin-bottom: 1rem; padding-left: 1.5rem; position: relative; color: #a0a8c0; }
+.about-why-list li::before { content: '🚀'; position: absolute; left: 0; top: 0; font-size: 1rem; }
+.about-why-list strong { color: #fff; }
+.about-why-image { flex: 1; }
+.about-why-image img { width: 100%; border-radius: 15px; box-shadow: 0 0 30px rgba(0, 212, 255, 0.2); }
+
+/* 5. DISCOVERIES */
+.about-discovery-card img { width: 100%; height: 200px; object-fit: cover; }
+.about-disc-body { padding: 1.5rem; }
+.about-tag { font-size: 0.8rem; color: #00d4ff; text-transform: uppercase; margin-bottom: 0.5rem; display: block; }
+.about-disc-body h3 { font-size: 1.3rem; margin-bottom: 0.5rem; }
+.about-disc-body p { font-size: 0.95rem; margin-bottom: 1.5rem; }
+
+/* 6. INDIA'S JOURNEY */
+.about-india-section {
+  background: linear-gradient(to right, rgba(0, 212, 255, 0.05), transparent);
+  border-top: 1px solid rgba(0, 212, 255, 0.1);
+  border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+}
+.about-india-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-bottom: 3rem; }
+.about-india-card { background: rgba(0,0,0,0.5); padding: 1.5rem; border-radius: 15px; border-left: 4px solid #00d4ff; }
+.about-india-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; }
+.about-india-card h3 { color: #fff; margin: 0; font-size: 1.1rem; }
+.about-badge { font-size: 0.7rem; padding: 3px 8px; border-radius: 20px; font-weight: bold; text-transform: uppercase; }
+.about-badge.success { background: #00ff88; color: #000; }
+.about-badge.active { background: #00d4ff; color: #000; }
+.about-badge.completed { background: #888; color: #fff; }
+.about-badge.in-dev { background: #ffaa00; color: #000; }
+.about-year { color: #00d4ff; font-weight: bold; margin-bottom: 0.5rem; font-size: 0.9rem; }
+.about-center-btn { text-align: center; }
+
+/* 7. MISSION EXPLORER */
+.about-explorer-controls { display: flex; gap: 1rem; justify-content: center; margin-bottom: 3rem; }
+.about-explorer-controls input, .about-explorer-controls select {
+  padding: 12px 20px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  color: #fff;
+  font-size: 1rem;
+  outline: none;
+}
+.about-explorer-controls input:focus, .about-explorer-controls select:focus { border-color: #00d4ff; }
+
+.about-explorer-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+.about-mission-card {
+  background: rgba(255,255,255,0.03);
+  padding: 1.5rem;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.about-mission-card:hover { background: rgba(0, 212, 255, 0.1); transform: scale(1.02); }
+.about-mission-card h4 { color: #fff; margin-bottom: 0.3rem; }
+.about-mission-agency { color: #00d4ff; font-size: 0.85rem; margin-bottom: 1rem; }
+.about-mission-tags { display: flex; gap: 0.5rem; }
+.about-mission-tags span { font-size: 0.75rem; background: rgba(255,255,255,0.1); padding: 3px 8px; border-radius: 5px; color: #ccc; }
+.about-no-results { grid-column: 1 / -1; text-align: center; font-size: 1.2rem; padding: 2rem; }
+
+/* 8. FACTS */
+.about-facts-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+.about-fact-card {
+  background: rgba(0, 212, 255, 0.05);
+  padding: 1.5rem;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.about-fact-card:hover { border-color: #00d4ff; }
+.about-fact-card h4 { color: #00d4ff; margin-bottom: 0.5rem; }
+.about-fact-text { color: #fff; margin-bottom: 1rem; animation: fadeIn 0.4s ease; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: translateY(0); } }
+
+/* 9. RESOURCES */
+.about-resources { text-align: center; }
+.about-resource-links { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
+.about-resource-links a {
+  color: #00d4ff;
+  text-decoration: none;
+  padding: 10px 20px;
+  border: 1px solid #00d4ff;
+  border-radius: 8px;
+  transition: all 0.3s;
+}
+.about-resource-links a:hover { background: #00d4ff; color: #000; box-shadow: 0 0 15px #00d4ff; }
+
+/* MODALS */
+.about-modal-overlay {
+  position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+  background: rgba(0,0,0,0.85);
+  display: flex; justify-content: center; align-items: center;
+  z-index: 9999; backdrop-filter: blur(5px);
+}
+.about-modal-content {
+  background: #0a0e27; padding: 2.5rem; border-radius: 15px;
+  max-width: 700px; width: 90%; position: relative;
+  border: 1px solid #00d4ff; box-shadow: 0 0 40px rgba(0, 212, 255, 0.3);
+  max-height: 90vh; overflow-y: auto;
+}
+.about-close-modal {
+  position: absolute; top: 15px; right: 15px;
+  background: transparent; border: none; color: #ff4444;
+  font-size: 1.5rem; cursor: pointer;
+}
+.about-modal-img { width: 100%; height: 250px; object-fit: cover; border-radius: 10px; margin-bottom: 1.5rem; }
+.about-modal-text { font-size: 1.05rem; line-height: 1.8; color: #ccc; margin-top: 1rem; }
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* RESPONSIVE */
+@media (max-width: 1200px) {
+  .about-grid-4, .about-explorer-grid, .about-india-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 1024px) {
+  .about-grid-4, .about-explorer-grid, .about-india-grid { grid-template-columns: repeat(2, 1fr); }
+  .about-why-section { flex-direction: column; }
+}
+
+@media (max-width: 768px) {
+  .about-grid-4, .about-grid-3, .about-india-grid, .about-explorer-grid, .about-facts-grid { grid-template-columns: 1fr; }
+  .about-explorer-controls { flex-direction: column; }
+  .about-hero-content h1 { font-size: 2.2rem; }
+}

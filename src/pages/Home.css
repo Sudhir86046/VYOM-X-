@@ -1,0 +1,187 @@
+.master-page-wrapper {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* --- हीरो सेक्शन --- */
+.hero-section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh; 
+  display: flex;
+  flex-direction: column !important; /* 🚀 फोर्सफुली ऊपर-नीचे */
+  justify-content: center !important;
+  align-items: center !important;
+  overflow: hidden; 
+  padding: 120px 2rem 50px 2rem; 
+  text-align: center;
+}
+
+/* 🚀 टेक्स्ट वाला हिस्सा */
+.hero-text-section {
+  width: 100%;
+  max-width: 1200px;
+  margin-bottom: 3rem; /* टेक्स्ट और बॉक्स के बीच की दूरी */
+  display: flex;
+  flex-direction: column !important;
+  align-items: center !important;
+}
+
+.hero-text-section h1 {
+  font-size: clamp(1.5rem, 3vw, 2.5rem); /* फॉन्ट साइज स्क्रीन के हिसाब से */
+  font-weight: 800; 
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+  line-height: 1.2;
+  
+  background: linear-gradient(to right, #ffffff, #00d4ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0px 0px 15px rgba(0, 212, 255, 0.5)); 
+}
+
+.hero-text-section p {
+  font-size: clamp(0.9rem, 1.2vw, 1.1rem); 
+  color: #e0e0e0;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+  letter-spacing: 1px;
+}
+
+/* 🚀 बॉक्स वाला हिस्सा (50-50) */
+.hero-boxes-section {
+  display: flex;
+  flex-direction: row !important; /* 🚀 बॉक्स बगल-बगल रहेंगे */
+  justify-content: space-between !important; 
+  align-items: stretch !important; 
+  width: 100%;
+  max-width: 1200px;
+  height: 50vh; 
+  min-height: 350px;
+  gap: 4%; 
+}
+
+/* 🎥 बाईं तरफ का वीडियो बॉक्स */
+.hero-left-box {
+  width: 48% !important; /* 48% चौड़ाई */
+  flex: none !important;
+  background: #000; 
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  border-radius: 15px;
+  overflow: hidden; 
+  box-shadow: 0 0 25px rgba(0, 212, 255, 0.2);
+  transition: all 0.3s ease;
+  padding: 0; 
+  display: flex;
+  position: relative; 
+}
+
+/* 🎬 वीडियो (iframe) */
+.hero-video {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+  pointer-events: none; /* 🚀 टच ब्लॉक */
+  transform: scale(1.01); 
+}
+
+/* 🛡️ अदृश्य परत */
+.video-overlay {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  z-index: 10;
+  background: transparent;
+  cursor: default;
+}
+
+/* 🔴 LIVE बैज */
+.live-badge {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  z-index: 20;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 5px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid rgba(255, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  letter-spacing: 1px;
+}
+
+.live-dot {
+  width: 8px; height: 8px;
+  background-color: #ff0000;
+  border-radius: 50%;
+  display: inline-block;
+  animation: pulse-red 1.5s infinite;
+}
+
+@keyframes pulse-red {
+  0% { box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7); }
+  70% { box-shadow: 0 0 0 8px rgba(255, 0, 0, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 0, 0, 0); }
+}
+
+.hero-left-box:hover {
+  border-color: #00d4ff;
+  box-shadow: 0 0 35px rgba(0, 212, 255, 0.4);
+}
+
+/* 🖼️ दाईं तरफ का इमेज कंटेनर */
+.hero-image-container {
+  width: 48% !important; /* 48% चौड़ाई */
+  flex: none !important;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 0 25px rgba(0, 212, 255, 0.3); 
+  border: 1px solid rgba(0, 212, 255, 0.2);
+}
+
+/* 🖼️ इमेज */
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+  object-position: center; 
+}
+
+/* =========================================
+   📱 मोबाइल और टैबलेट के लिए फिक्स
+   ========================================= */
+@media (max-width: 1024px) {
+  .hero-text-section h1 {
+    font-size: 2rem;
+  }
+  .hero-boxes-section {
+    height: 40vh;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 100px 1rem 30px 1rem; 
+  }
+  .hero-text-section h1 {
+    font-size: 1.6rem; 
+    line-height: 1.3;
+  }
+  
+  /* 🚀 मोबाइल पर बॉक्स ऊपर-नीचे होंगे */
+  .hero-boxes-section {
+    flex-direction: column !important; 
+    height: auto;
+    gap: 1.5rem;
+  }
+  
+  .hero-left-box, .hero-image-container {
+    width: 100% !important;
+    height: 250px; 
+  }
+}

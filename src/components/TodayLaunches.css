@@ -1,0 +1,309 @@
+.today-launches-section {
+  padding: 4rem 2rem;
+  position: relative;
+  width: 100%;
+  z-index: 1;
+}
+
+.today-heading {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #00d4ff;
+  margin-bottom: 3rem;
+  text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+  letter-spacing: 2px;
+}
+
+/* 🟦 4 बॉक्स का ग्रिड */
+.today-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 कॉलम (लाइन में 4 बॉक्स) */
+  gap: 1.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* 🔲 वर्टिकल कार्ड */
+.launch-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  border-radius: 15px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column; 
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  height: 440px; /* 🚀 हाइट बढ़ा दी ताकि लंबे नाम पूरे दिख सकें */
+}
+
+.launch-card:hover {
+  transform: translateY(-8px);
+  border-color: #00d4ff;
+  box-shadow: 0 15px 30px rgba(0, 212, 255, 0.3);
+}
+
+/* इमेज बॉक्स */
+.launch-img-box {
+  position: relative;
+  width: 100%;
+  height: 45%; /* इमेज की जगह */
+  overflow: hidden;
+}
+
+.launch-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.8;
+  transition: transform 0.3s ease;
+}
+
+.launch-img-box:hover .launch-img {
+  transform: scale(1.05);
+}
+
+/* लाइव टैग (लाल) */
+.live-tag {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #ff0000;
+  color: white;
+  font-size: 0.7rem;
+  font-weight: bold;
+  padding: 3px 8px;
+  border-radius: 4px;
+  letter-spacing: 1px;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
+  animation: blink 1.5s infinite;
+  z-index: 10;
+}
+
+.live-tag.is-live {
+  animation: pulse-red 1.5s infinite;
+  background: #ff0000;
+  box-shadow: 0 0 20px #ff0000;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes pulse-red {
+  0% { box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7); }
+  70% { box-shadow: 0 0 0 10px rgba(255, 0, 0, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 0, 0, 0); }
+}
+
+/* 🎬 इमेज के ऊपर वाला Play बटन */
+.play-overlay {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: 5;
+}
+
+.launch-img-box:hover .play-overlay {
+  opacity: 1;
+}
+
+.play-btn {
+  width: 50px; height: 50px;
+  background: #ff0000;
+  color: white;
+  border-radius: 50%;
+  display: flex; justify-content: center; align-items: center;
+  font-size: 1.5rem;
+  padding-left: 5px;
+  box-shadow: 0 0 20px #ff0000;
+  transition: transform 0.2s;
+}
+
+.play-btn:hover {
+  transform: scale(1.1);
+}
+
+/* जानकारी वाला हिस्सा */
+.launch-info {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1; /* 🚀 बची हुई पूरी जगह लेगा */
+  text-align: center;
+}
+
+.launch-agency {
+  color: #00d4ff;
+  font-size: 0.75rem; 
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin-bottom: 0.4rem;
+  min-height: 2.2rem; /* 🚀 लंबे नाम के लिए फिक्स जगह */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.launch-name {
+  color: #fff;
+  font-size: 1.05rem;
+  margin-bottom: 0.8rem;
+  line-height: 1.4;
+  min-height: 2.9rem; /* 🚀 2 लाइन के नाम के लिए फिक्स जगह */
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* ज्यादा लंबा नाम होने पर 2 लाइन के बाद ... आ जाएगा */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ⏱️ टाइमर डिज़ाइन */
+.countdown-timer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 6px;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 212, 255, 0.1);
+  margin-bottom: 1rem;
+}
+
+.time-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 40px;
+}
+
+.time-num {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #00d4ff;
+  text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+}
+
+.time-label {
+  font-size: 0.6rem;
+  color: #888;
+  letter-spacing: 1px;
+}
+
+.time-colon {
+  color: #00d4ff;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: -10px;
+}
+
+/* 🚀 Explore एजेंसी बटन */
+.explore-btn {
+  margin-top: auto; /* 🚀 बटन हमेशा नीचे चिपका रहेगा */
+  background: rgba(0, 212, 255, 0.1);
+  color: #00d4ff;
+  border: 1px solid #00d4ff;
+  padding: 10px 12px;
+  border-radius: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.3s ease;
+  font-size: 0.85rem;
+  text-decoration: none; 
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.explore-btn:hover {
+  background: #00d4ff;
+  color: #000;
+  box-shadow: 0 0 15px rgba(0, 212, 255, 0.6);
+  transform: translateY(-2px);
+}
+
+/* 🎥 Watch Live स्ट्रीम वाला बटन (जब लाइव हो) */
+.watch-live-btn {
+  margin-top: auto;
+  background: #ff0000;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.3s;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.watch-live-btn:hover {
+  background: #cc0000;
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.6);
+}
+
+/* 🎬 वीडियो पॉपअप (Modal) */
+.video-modal-overlay {
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  backdrop-filter: blur(5px);
+}
+
+.video-modal-content {
+  position: relative;
+  width: 90%;
+  max-width: 900px;
+  aspect-ratio: 16 / 9;
+  background: #000;
+  border: 2px solid #00d4ff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 40px rgba(0, 212, 255, 0.3);
+}
+
+.video-modal-content iframe {
+  width: 100%; height: 100%;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px; right: 10px;
+  background: red; color: white;
+  border: none; border-radius: 50%;
+  width: 35px; height: 35px;
+  font-weight: bold; font-size: 1.2rem;
+  cursor: pointer; z-index: 10000;
+  transition: transform 0.2s;
+}
+
+.close-btn:hover {
+  transform: scale(1.1);
+}
+
+/* 📱 मोबाइल और टैबलेट के लिए */
+@media (max-width: 1024px) {
+  .today-grid {
+    grid-template-columns: repeat(2, 1fr); 
+  }
+}
+
+@media (max-width: 600px) {
+  .today-grid {
+    grid-template-columns: 1fr; 
+  }
+  .launch-card {
+    height: 440px; 
+  }
+}
