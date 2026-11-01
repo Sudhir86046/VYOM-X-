@@ -1,0 +1,130 @@
+.drones-page-wrapper {
+  width: 100%;
+  min-height: 100vh;
+  padding: 120px 2rem 50px 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: transparent;
+}
+
+.drones-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.drones-header h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  background: linear-gradient(to right, #ffffff, #00d4ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.drones-header p {
+  color: #a0a8c0;
+  font-size: 1.2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.drones-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  max-width: 1400px;
+  width: 100%;
+}
+
+.drone-card {
+  background: rgba(10, 14, 39, 0.7);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  border-radius: 15px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+}
+
+.drone-card:hover {
+  transform: translateY(-8px);
+  border-color: #00d4ff;
+  box-shadow: 0 10px 20px rgba(0, 212, 255, 0.3);
+}
+
+.drone-img-box {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  background-color: #000;
+}
+
+.drone-img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.drone-card:hover .drone-img-box img {
+  transform: scale(1.05);
+}
+
+.drone-info {
+  padding: 1.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.drone-agency {
+  color: #00d4ff;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.drone-info h3 {
+  color: #fff;
+  font-size: 1.4rem;
+  margin-bottom: 1.5rem;
+}
+
+.read-more-btn {
+  margin-top: auto;
+  background: transparent;
+  color: #00d4ff;
+  border: 1px solid #00d4ff;
+  padding: 10px 15px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.read-more-btn:hover {
+  background: #00d4ff;
+  color: #000;
+  box-shadow: 0 0 15px rgba(0, 212, 255, 0.6);
+}
+
+@media (max-width: 1024px) {
+  .drones-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .drones-grid {
+    grid-template-columns: 1fr;
+  }
+}

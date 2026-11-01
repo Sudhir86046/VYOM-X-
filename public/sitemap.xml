@@ -9,6 +9,10 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://vyom-xin.vercel.app/drones</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://vyom-xin.vercel.app/past-launches</loc>
     <priority>0.8</priority>
   </url>

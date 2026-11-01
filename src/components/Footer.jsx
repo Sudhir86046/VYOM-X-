@@ -11,6 +11,7 @@ function Footer() {
     <footer className="footer-section">
       <div className="footer-container">
         
+        {/* कॉलम 1: ब्रांड और डिस्क्रिप्शन */}
         <div className="footer-column brand-col">
           <Link to="/" className="footer-logo-block" onClick={handleHomeClick}>
             <div className="footer-logo-img-wrapper">
@@ -23,20 +24,22 @@ function Footer() {
           </p>
         </div>
 
+        {/* कॉलम 2: क्विक लिंक्स (यहाँ About और Past Launches हैं) */}
         <div className="footer-column">
           <h3 className="footer-heading">Quick Links</h3>
           <ul className="footer-links">
             <li><Link to="/" onClick={handleHomeClick}>Home</Link></li>
             <li><Link to="/space-news">Space News</Link></li>
+            <li><Link to="/drones">Drones & Robotics</Link></li> {/* 🚀 Drones यहाँ जोड़ा */}
             <li><Link to="/past-launches">Past Launches</Link></li>
             <li><Link to="/about">About Us</Link></li>
             <li><Link to="/space-heroes">Space Heroes</Link></li>
-            {/* 🚀 Our Mission Link Added */}
             <li><Link to="/our-mission">Our Mission</Link></li>
             <li><Link to="/contact">Contact Us</Link></li>
           </ul>
         </div>
 
+        {/* कॉलम 3: लीगल */}
         <div className="footer-column">
           <h3 className="footer-heading">Legal</h3>
           <ul className="footer-links">
@@ -47,6 +50,7 @@ function Footer() {
           </ul>
         </div>
 
+        {/* कॉलम 4: सोशल मीडिया */}
         <div className="footer-column">
           <h3 className="footer-heading">Follow Us</h3>
           <div className="social-links">
@@ -67,6 +71,7 @@ function Footer() {
 
       </div>
 
+      {/* नीचे का कॉपीराइट हिस्सा */}
       <div className="footer-bottom">
         <p>&copy; {new Date().getFullYear()} VYOM-X. All rights reserved.</p>
         <p className="made-with">Made with 🚀 for Space Enthusiasts</p>

@@ -9,12 +9,14 @@ function Navbar() {
 
   return (
     <nav className="navbar">
+      {/* 🚀 एनिमेशन लेयर्स */}
       <div className="theme-wipe"></div>
       <div className="flying-rocket">
         <div className="rocket-trail"></div>
         <span className="rocket-icon">🚀</span>
       </div>
 
+      {/* 🚀 लोगो */}
       <Link to="/" className="logo-block" onClick={handleHomeClick}>
         <div className="logo-img-wrapper">
           <img src={logoImg} alt="VYOM-X Logo" className="logo-image" />
@@ -25,13 +27,12 @@ function Navbar() {
         </div>
       </Link>
       
+      {/* 🚀 नेविगेशन लिंक्स */}
       <ul className="nav-links">
         <li><Link to="/" onClick={handleHomeClick}>Home</Link></li>
         <li><Link to="/space-news">Space News</Link></li>
-        <li><Link to="/past-launches">Past Launches</Link></li>
-        <li><Link to="/about">About Us</Link></li>
+        <li><Link to="/drones">Drones & Robotics</Link></li>
         <li><Link to="/space-heroes">Space Heroes</Link></li>
-        {/* 🚀 Our Mission Link Added */}
         <li><Link to="/our-mission">Our Mission</Link></li>
         <li><Link to="/contact">Contact Us</Link></li>
       </ul>
