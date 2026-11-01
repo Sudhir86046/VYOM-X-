@@ -6,6 +6,10 @@ import TodayLaunches from '../components/TodayLaunches';
 import scientistsImg from '../assets/scientists.png'; 
 import { Link } from 'react-router-dom'; 
 
+// 🚀 YouTube Lite Embed के लिए इम्पोर्ट (साइट फास्ट करने के लिए)
+import LiteYouTubeEmbed from 'react-lite-youtube-embed';
+import 'react-lite-youtube-embed/dist/LiteYouTubeEmbed.css';
+
 // 🚀 6 ड्रोन्स की इमेजेस
 import reaperImg from '../assets/drones/MQ-9_Reaper_UAV_(cropped).jpg';
 import globalhawkImg from '../assets/drones/Global_Hawk_1.jpg';
@@ -43,23 +47,24 @@ function Home() {
           <p>Exploring the Universe. Advancing Humanity. Redefining What's Possible</p>
         </div>
         <div className="hero-boxes-section">
+          
           <div className="hero-left-box">
-            <iframe 
-              className="hero-video"
-              src="https://www.youtube.com/embed/ROboUHfPUrU?autoplay=1&mute=1&controls=0&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&disablekb=1&loop=1&playlist=ROboUHfPUrU" 
+            {/* 🚀 यहाँ LiteYouTubeEmbed लगा दिया है जो साइट को सुपरफास्ट करेगा */}
+            <LiteYouTubeEmbed
+              id="ROboUHfPUrU"
               title="NASA Live Stream"
-              frameBorder="0" 
-              allow="autoplay; encrypted-media" 
-              referrerPolicy="strict-origin-when-cross-origin"
-            ></iframe>
+              poster="hqdefault"
+            />
             <div className="video-overlay"></div>
             <div className="live-badge">
               <span className="live-dot"></span> LIVE
             </div>
           </div>
+
           <div className="hero-image-container">
-            <img src={scientistsImg} alt="Scientists and Space" className="hero-img" />
+            <img src={scientistsImg} alt="Scientists and Space" className="hero-img" loading="lazy" />
           </div>
+          
         </div>
       </div>
       
@@ -78,7 +83,7 @@ function Home() {
             <h2 className="panel-title">Drones & Robotics</h2>
             <Link to="/drones" className="drone-slider-card">
               <div className="drone-slider-image-box">
-                <img key={activeSlide} src={droneData[activeSlide].img} alt={droneData[activeSlide].name} className="slider-img-anim" />
+                <img key={activeSlide} src={droneData[activeSlide].img} alt={droneData[activeSlide].name} className="slider-img-anim" loading="lazy" />
               </div>
               <div className="drone-slider-text">
                 <span className="drone-slider-badge">AUTONOMOUS UAV</span>
