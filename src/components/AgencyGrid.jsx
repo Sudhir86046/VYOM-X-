@@ -1,4 +1,4 @@
-import './AgencyGrid.css'; // 👈 यहाँ फिक्स कर दिया है
+import './AgencyGrid.css';
 
 // 🚀 सभी 14 इमेजेस के इम्पोर्ट्स
 import img1 from '../assets/mission/Screenshot 2026-11-01 233951.png';
@@ -11,10 +11,6 @@ import img7 from '../assets/mission/Screenshot 2026-11-01 234131.png';
 import img8 from '../assets/mission/Screenshot 2026-11-01 234141.png';
 import img9 from '../assets/mission/Screenshot 2026-11-01 234157.png';
 import img10 from '../assets/mission/Screenshot 2026-11-01 234212.png';
-import img11 from '../assets/mission/Screenshot 2026-11-01 234225.png';
-import img12 from '../assets/mission/Screenshot 2026-11-01 234236.png';
-import img13 from '../assets/mission/Screenshot 2026-11-01 234246.png';
-import img14 from '../assets/mission/Screenshot 2026-11-01 234254.png';
 
 const droneCategories = [
   { id: '01', title: 'AUTONOMOUS AERIAL DRONES', desc: 'Intelligent unmanned aerial systems designed to navigate planned routes, process environmental information and perform flight operations with minimal human intervention.', apps: 'Environmental Monitoring, Mapping, Infrastructure Inspection.', image: img1 },
@@ -150,45 +146,7 @@ function AgencyGrid() {
         </div>
       </section>
 
-      {/* 5. VYOM-X TECHNOLOGY VISION */}
-      <section className="dr-section dr-vision-section">
-        <div className="dr-vision-images">
-          <img src={img11} alt="Vision 1" className="v-img1" />
-          <img src={img12} alt="Vision 2" className="v-img2" />
-          <img src={img13} alt="Vision 3" className="v-img3" />
-          <img src={img14} alt="Vision 4" className="v-img4" />
-        </div>
-
-        <div className="dr-vision-content">
-          <span className="dr-label">OUR LONG-TERM VISION</span>
-          <h1>VYOM-X TECHNOLOGY VISION</h1>
-          <h3>Integrating Drones, Robotics and Space Technology for a Smarter World.</h3>
-          <p>VYOM-X envisions a future where autonomous aerial platforms, intelligent robotics, artificial intelligence and satellite-assisted communication operate as parts of one connected technological ecosystem. Our long-term development direction focuses on creating scalable, energy-efficient and intelligent systems.</p>
-          
-          <div className="dr-directions">
-            <h4>OUR FIVE TECHNOLOGY DIRECTIONS</h4>
-            <ul>
-              <li>01. Autonomous Aerial Platforms</li>
-              <li>02. Intelligent Robotics & Automation</li>
-              <li>03. Satellite-Assisted Connectivity</li>
-              <li>04. Multi-Drone Coordination</li>
-              <li>05. Unified Command & Control Infrastructure</li>
-            </ul>
-          </div>
-
-          <div className="dr-2031-box">
-            <h4>2031 – FIRST PRODUCT LAUNCH TARGET</h4>
-            <p>By 2031, VYOM-X aims to launch its first integrated autonomous aerial technology product, subject to research, engineering development, testing and regulatory approvals.</p>
-          </div>
-
-          <div className="dr-closing">
-            <h2>FROM INDIVIDUAL MACHINES TO INTELLIGENT NETWORKS.</h2>
-            <h2>ENGINEERING THE NEXT GENERATION OF AUTONOMOUS TECHNOLOGY.</h2>
-            <h3>VYOM-X</h3>
-            <p>VISIONARY YOUTH OF MODERN EXPLORATION.</p>
-          </div>
-        </div>
-      </section>
+      {/* 🚀 Yahan se Vision section completely hata diya gaya hai */}
 
     </div>
   );
