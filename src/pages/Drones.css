@@ -1,40 +1,114 @@
+/* =========================================
+   🚀 MAIN WRAPPER & HEADER
+   ========================================= */
 .drones-page-wrapper {
   width: 100%;
   min-height: 100vh;
-  padding: 120px 2rem 50px 2rem;
+  padding: 90px 2rem 50px 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   background: transparent;
+  overflow-x: hidden;
 }
 
 .drones-header {
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 3rem; 
+  max-width: 100%;
+  width: 100%;
 }
 
 .drones-header h1 {
-  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem); 
   background: linear-gradient(to right, #ffffff, #00d4ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+
+.drones-header h3 {
+  color: #a1c4fd;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  font-weight: 500;
 }
 
 .drones-header p {
   color: #a0a8c0;
-  font-size: 1.2rem;
-  max-width: 800px;
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 900px;
   margin: 0 auto;
 }
 
+/* =========================================
+   🚀 GENERAL SECTIONS
+   ========================================= */
+.drones-section {
+  max-width: 1400px;
+  width: 100%;
+  margin-bottom: 6rem;
+}
+
+.section-title {
+  text-align: center;
+  color: #ffffff;
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  margin-bottom: 3rem;
+  text-transform: uppercase;
+  text-shadow: 0 0 15px rgba(0, 212, 255, 0.4);
+}
+
+/* =========================================
+   🚀 SECTION 2: CATEGORIES GRID
+   ========================================= */
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.2rem; 
+}
+
+.category-card {
+  background: rgba(10, 14, 39, 0.6);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  padding: 1.2rem;
+  border-radius: 12px;
+  text-align: center;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.category-card:hover {
+  transform: translateY(-5px);
+  border-color: #00d4ff;
+  background: rgba(0, 212, 255, 0.05);
+}
+
+.category-card h4 {
+  color: #00d4ff;
+  margin-bottom: 0.6rem;
+  font-size: 1rem;
+}
+
+.category-card p {
+  color: #a0a8c0;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* =========================================
+   🚀 SECTION 3: DRONES GRID & CARDS
+   ========================================= */
 .drones-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
-  max-width: 1400px;
   width: 100%;
 }
 
@@ -43,16 +117,16 @@
   border: 1px solid rgba(0, 212, 255, 0.2);
   border-radius: 15px;
   overflow: hidden;
-  transition: all 0.3s ease;
+  transition: all 0.4s ease;
   backdrop-filter: blur(10px);
   display: flex;
   flex-direction: column;
 }
 
 .drone-card:hover {
-  transform: translateY(-8px);
   border-color: #00d4ff;
-  box-shadow: 0 10px 20px rgba(0, 212, 255, 0.3);
+  box-shadow: 0 10px 30px rgba(0, 212, 255, 0.2);
+  transform: translateY(-5px);
 }
 
 .drone-img-box {
@@ -67,10 +141,12 @@
   height: 100%;
   object-fit: cover;
   transition: transform 0.4s ease;
+  opacity: 0.8;
 }
 
 .drone-card:hover .drone-img-box img {
   transform: scale(1.05);
+  opacity: 1;
 }
 
 .drone-info {
@@ -82,33 +158,33 @@
 }
 
 .drone-agency {
-  color: #00d4ff;
+  color: #a1c4fd;
   font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 1px;
   margin-bottom: 0.5rem;
-  font-weight: bold;
 }
 
 .drone-info h3 {
   color: #fff;
   font-size: 1.4rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
+/* Buttons */
 .read-more-btn {
-  margin-top: auto;
   background: transparent;
   color: #00d4ff;
   border: 1px solid #00d4ff;
   padding: 10px 15px;
   border-radius: 25px;
-  text-decoration: none;
   font-weight: bold;
   font-size: 0.85rem;
+  cursor: pointer;
   transition: all 0.3s ease;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  margin-bottom: 15px;
+  width: 100%;
 }
 
 .read-more-btn:hover {
@@ -117,14 +193,345 @@
   box-shadow: 0 0 15px rgba(0, 212, 255, 0.6);
 }
 
-@media (max-width: 1024px) {
-  .drones-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+.wiki-link {
+  color: #888;
+  font-size: 0.8rem;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.wiki-link:hover {
+  color: #fff;
+}
+
+/* =========================================
+   🚀 POPUP MODAL CSS
+   ========================================= */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  padding: 20px;
+  animation: fadeInModal 0.3s ease;
+}
+
+.modal-content {
+  background: #0a0e27;
+  border: 1px solid #00d4ff;
+  border-radius: 15px;
+  width: 100%;
+  max-width: 700px;
+  max-height: 85vh;
+  overflow-y: auto;
+  padding: 2rem;
+  position: relative;
+  box-shadow: 0 0 40px rgba(0, 212, 255, 0.3);
+  animation: slideUpModal 0.3s ease;
+}
+
+.modal-content::-webkit-scrollbar { width: 8px; }
+.modal-content::-webkit-scrollbar-track { background: #0a0e27; }
+.modal-content::-webkit-scrollbar-thumb { background: #00d4ff; border-radius: 10px; }
+
+.modal-close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: transparent;
+  color: #00d4ff;
+  border: 1px solid rgba(0, 212, 255, 0.4);
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.modal-close-btn:hover {
+  background: #00d4ff;
+  color: #000;
+  box-shadow: 0 0 15px #00d4ff;
+}
+
+.modal-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+}
+
+.modal-header h2 {
+  color: #fff;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.modal-header p {
+  color: #00d4ff;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.detail-row {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding-bottom: 0.5rem;
+}
+
+.detail-row span {
+  color: #00d4ff;
+  font-weight: bold;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+}
+
+.detail-row p {
+  color: #d1d5db;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.fact-row {
+  display: block;
+  background: rgba(0, 212, 255, 0.1);
+  padding: 1rem;
+  border-radius: 8px;
+  border-left: 3px solid #00d4ff;
+  margin-top: 1rem;
+}
+
+.fact-row span { display: block; margin-bottom: 0.5rem; color: #fff; }
+.fact-row p { color: #a1c4fd; font-style: italic; }
+
+.modal-footer {
+  text-align: center;
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(0, 212, 255, 0.2);
+}
+
+.modal-footer .wiki-link {
+  display: inline-block;
+  color: #00d4ff;
+  font-size: 0.95rem;
+  text-decoration: none;
+  border: 1px solid #00d4ff;
+  padding: 10px 20px;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+
+.modal-footer .wiki-link:hover {
+  background: #00d4ff;
+  color: #000;
+}
+
+@keyframes fadeInModal {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUpModal {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* =========================================
+   🚀 SECTION 4: TECH GRID
+   ========================================= */
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.tech-card {
+  background: rgba(255, 255, 255, 0.02);
+  padding: 1.5rem;
+  border-radius: 10px;
+  border-left: 2px solid rgba(0, 212, 255, 0.5);
+  transition: all 0.3s ease;
+}
+
+.tech-card:hover {
+  background: rgba(0, 212, 255, 0.05);
+  border-left: 2px solid #00d4ff;
+}
+
+.tech-card h4 { color: #00d4ff; margin-bottom: 0.5rem; }
+.tech-card p { color: #a0a8c0; font-size: 0.9rem; line-height: 1.5; }
+
+/* =========================================
+   🚀 SECTION 5: APPLICATIONS
+   ========================================= */
+.applications-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.applications-list span {
+  background: rgba(0, 212, 255, 0.1);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  padding: 10px 20px;
+  border-radius: 30px;
+  color: #e0e0e0;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.applications-list span:hover {
+  background: rgba(0, 212, 255, 0.2);
+  color: #fff;
+}
+
+/* =========================================
+   🚀 SECTION 6: COMPARISON TABLE (Image Style)
+   ========================================= */
+
+/* टेबल का मुख्य डिब्बा (Dark Glass Background) */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  margin-top: 2rem;
+  background: rgba(10, 14, 39, 0.6); /* गहरा नेवी बैकग्राउंड */
+  border: 1px solid rgba(0, 212, 255, 0.2); /* हल्का सियान बॉर्डर */
+  border-radius: 10px; /* गोल कोने */
+  padding-bottom: 0;
+}
+
+.table-responsive::-webkit-scrollbar { height: 6px; }
+.table-responsive::-webkit-scrollbar-track { background: transparent; }
+.table-responsive::-webkit-scrollbar-thumb { background: rgba(0, 212, 255, 0.4); border-radius: 10px; }
+
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  background: transparent; 
+  min-width: 900px; 
+}
+
+/* हेडर (ऊपर की रो) */
+.comparison-table th {
+  background: rgba(0, 212, 255, 0.05); /* हेडर में हल्का सियान टिंट */
+  color: #00d4ff;
+  padding: 18px 20px;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-top: 2px solid #00d4ff; /* ऊपर सियान लाइन */
+  border-bottom: 2px solid #00d4ff; /* नीचे सियान लाइन */
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* टेबल की रो (डेटा) - हल्की सफेद लाइन */
+.comparison-table td {
+  background: transparent; 
+  padding: 18px 20px;
+  color: #b0b8c8;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08); /* रो के बीच हल्की लाइन */
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.highlight-text {
+  color: #ffffff !important;
+  font-weight: 600;
+}
+
+/* हॉवर इफेक्ट - पूरी रो हल्की सियान हो जाएगी */
+.comparison-table tr:hover td {
+  background: rgba(0, 212, 255, 0.05); 
+  color: #00d4ff; 
+}
+.comparison-table tr:hover .highlight-text {
+  color: #00d4ff !important;
+}
+
+/* =========================================
+   🚀 SECTION 7: FACTS
+   ========================================= */
+.facts-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.facts-list li {
+  background: rgba(0, 212, 255, 0.05);
+  padding: 1.5rem;
+  border-radius: 10px;
+  border-left: 3px solid #00d4ff;
+  color: #d1d5db;
+  line-height: 1.6;
+}
+
+/* =========================================
+   🚀 SECTION 8: VISION
+   ========================================= */
+.vision-section {
+  text-align: center;
+  background: linear-gradient(135deg, rgba(10, 14, 39, 0.8), rgba(0, 212, 255, 0.05));
+  padding: 4rem 2rem;
+  border-radius: 20px;
+  border: 1px solid rgba(0, 212, 255, 0.2);
+}
+
+.vision-text {
+  color: #a0a8c0;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* =========================================
+   📱 RESPONSIVE DESIGN
+   ========================================= */
+@media (max-width: 1200px) {
+  .categories-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 1100px) {
+  .drones-grid { grid-template-columns: repeat(2, 1fr); }
+  .tech-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 768px) {
-  .drones-grid {
-    grid-template-columns: 1fr;
-  }
+  .drones-page-wrapper { padding: 80px 1rem 50px 1rem; }
+  .drones-header h1 { font-size: 1.5rem; white-space: normal; }
+  .categories-grid { grid-template-columns: repeat(2, 1fr); }
+  .drones-grid, .tech-grid { grid-template-columns: 1fr; }
+  .detail-row { grid-template-columns: 1fr; gap: 0.2rem; }
+}
+
+@media (max-width: 480px) {
+  .categories-grid { grid-template-columns: 1fr; }
 }

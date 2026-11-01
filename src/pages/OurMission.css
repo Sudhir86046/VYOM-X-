@@ -1,497 +1,366 @@
-/* =========================================
-   BASE STYLES & WRAPPER
-   ========================================= */
-.mission-cinematic-wrapper {
+.mission-wrapper {
   width: 100%;
   min-height: 100vh;
-  background-color: #02040a; 
-  color: #e0e0e0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  overflow-x: hidden;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-/* =========================================
-   SCROLL ANIMATIONS
-   ========================================= */
-.fade-up {
-  opacity: 0;
-  transform: translateY(60px);
-  transition: opacity 1s ease-out, transform 1s ease-out;
-}
-
-.fade-up.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* =========================================
-   1. HERO SECTION (SPLIT LAYOUT)
-   ========================================= */
-.hero-section {
-  position: relative;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
   padding: 120px 2rem 50px 2rem;
-}
-
-/* Starfield Background */
-.stars-bg {
-  position: absolute;
-  top: 0; left: 0; width: 100%; height: 100%;
-  background-image: 
-    radial-gradient(2px 2px at 20px 30px, #ffffff, rgba(0,0,0,0)),
-    radial-gradient(2px 2px at 40px 70px, #00d4ff, rgba(0,0,0,0)),
-    radial-gradient(1px 1px at 90px 40px, #ffffff, rgba(0,0,0,0)),
-    radial-gradient(2px 2px at 160px 120px, #ffffff, rgba(0,0,0,0));
-  background-repeat: repeat;
-  background-size: 200px 200px;
-  animation: twinkleStars 4s infinite alternate;
-  z-index: 1;
-}
-
-/* Rotating Earth */
-.earth-container {
-  position: absolute;
-  bottom: -250px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 800px;
-  height: 800px;
-  border-radius: 50%;
-  z-index: 0;
-}
-
-.earth-sphere {
-  width: 100%; height: 100%;
-  border-radius: 50%;
-  background: radial-gradient(circle at 30% 30%, #1b2735, #090a0f);
-  box-shadow: inset -50px -50px 100px rgba(0,0,0,0.9), inset 20px 20px 80px rgba(0, 212, 255, 0.2);
-  animation: rotateEarth 60s linear infinite;
-}
-
-.earth-glow {
-  position: absolute;
-  top: 0; left: 0; width: 100%; height: 100%;
-  border-radius: 50%;
-  box-shadow: 0 0 80px 20px rgba(0, 212, 255, 0.3);
-}
-
-/* 🚀 Hero Content: Split Layout (Image Left, Text Right) */
-.hero-content {
-  position: relative;
-  z-index: 10;
   display: flex;
-  flex-direction: row; 
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  background: transparent;
+  color: #e0e0e0;
+  overflow-x: hidden; 
+}
+
+/* 🚀 सामान्य सेक्शन (Alternating Layout ke liye) */
+.mission-section {
+  max-width: 1200px;
   width: 100%;
-  max-width: 1400px;
-  gap: 4rem;
-}
-
-.hero-image-container {
-  flex: 1;
-  display: flex;
-  justify-content: flex-start;
-}
-
-.hero-text-container {
-  flex: 1;
-  text-align: left; 
-  padding-left: 2rem;
-}
-
-.hero-jet {
-  width: 100%;
-  max-width: 650px;
-  filter: drop-shadow(0 0 30px rgba(0, 212, 255, 0.6));
-  animation: floatDrone 6s ease-in-out infinite;
-  border-radius: 20px;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-}
-
-.hero-title {
-  font-size: clamp(2.5rem, 4vw, 4rem); 
-  font-weight: 900;
-  color: #ffffff;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  line-height: 1.1;
-  margin-bottom: 1.5rem;
-}
-
-.glow-text {
-  background: linear-gradient(90deg, #00d4ff, #a1c4fd);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 0 25px rgba(0, 212, 255, 0.8));
-}
-
-.hero-subtitle {
-  font-size: 1.2rem;
-  color: #a0a8c0;
-  letter-spacing: 1px;
-  line-height: 1.6;
-}
-
-/* =========================================
-   2. SPLIT FEATURE SECTIONS
-   ========================================= */
-.feature-section {
+  margin-bottom: 7rem;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 4rem;
-  padding: 8rem 4rem;
-  max-width: 1300px;
-  margin: 0 auto;
+  gap: 5rem;
 }
 
-/* Alternate Layout */
-.feature-section.reverse {
-  flex-direction: row-reverse;
+/* जो सेक्शन फुल विड्थ चाहिए (Grids/Timeline) */
+.full-width-section {
+  display: block; 
+  text-align: center;
 }
 
+/* टेक्स्ट स्टाइल */
 .text-content {
   flex: 1;
 }
 
-.text-content h2 {
-  font-size: 2.5rem;
-  color: #ffffff;
-  margin-bottom: 1.5rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.text-content p {
-  font-size: 1.1rem;
-  color: #8892a0;
-  line-height: 1.8;
-}
-
-.image-content {
-  flex: 1;
-  position: relative;
-}
-
-.feature-img {
-  width: 100%;
-  border-radius: 20px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 212, 255, 0.2);
-  transition: transform 0.5s ease;
-}
-
-.feature-img:hover {
-  transform: scale(1.02);
-}
-
-.hud-badge {
-  display: inline-block;
-  background: rgba(0, 212, 255, 0.1);
-  border: 1px solid #00d4ff;
+.text-content h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
   color: #00d4ff;
-  padding: 8px 16px;
-  border-radius: 20px;
-  font-size: 0.85rem;
-  font-weight: bold;
-  letter-spacing: 2px;
-  margin-bottom: 1rem;
-  box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
-  animation: pulseBadge 2s infinite alternate;
-}
-
-/* =========================================
-   3. NEXT 5 YEARS ROADMAP BOX (Half-Half)
-   ========================================= */
-.roadmap-box-section {
-  padding: 6rem 4rem;
-  max-width: 1300px;
-  margin: 0 auto;
-}
-
-.roadmap-box {
-  display: flex;
-  background: rgba(10, 14, 39, 0.6);
-  border: 1px solid rgba(0, 212, 255, 0.2);
-  border-radius: 20px;
-  overflow: hidden;
-  backdrop-filter: blur(15px);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-}
-
-/* Left Half */
-.roadmap-left {
-  flex: 1;
-  padding: 4rem;
-  background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), transparent);
-  border-right: 1px solid rgba(0, 212, 255, 0.1);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.roadmap-left h2 {
-  font-size: 2.5rem;
-  color: #fff;
   margin-bottom: 0.5rem;
   text-transform: uppercase;
 }
 
-.years-text {
-  font-size: 2rem;
-  color: #00d4ff;
-  font-weight: bold;
-  margin-bottom: 1.5rem;
-  text-shadow: 0 0 15px rgba(0, 212, 255, 0.5);
-}
-
-.roadmap-desc {
-  color: #a0a8c0;
-  font-size: 1.1rem;
-  line-height: 1.6;
-}
-
-/* Right Half */
-.roadmap-right {
-  flex: 1.2;
-  padding: 3rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.milestone {
-  display: flex;
-  gap: 1.5rem;
-  align-items: flex-start;
-}
-
-.year {
-  background: rgba(0, 212, 255, 0.1);
-  border: 1px solid #00d4ff;
-  color: #00d4ff;
-  padding: 5px 10px;
-  border-radius: 8px;
-  font-weight: bold;
-  font-size: 1.1rem;
-  min-width: 70px;
-  text-align: center;
-}
-
-.milestone-info h4 {
-  color: #fff;
+.text-content h3 {
   font-size: 1.2rem;
-  margin-bottom: 0.3rem;
-}
-
-.milestone-info p {
-  color: #8892a0;
-  font-size: 0.95rem;
-  line-height: 1.5;
-}
-
-/* Ultimate Goal Highlight */
-.milestone.ultimate .year {
-  background: #00d4ff;
-  color: #000;
-  box-shadow: 0 0 15px #00d4ff;
-}
-.milestone.ultimate .milestone-info h4 {
-  color: #00d4ff;
-}
-
-/* =========================================
-   4. FAQ SECTION
-   ========================================= */
-.faq-section {
-  padding: 6rem 2rem;
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.section-title {
-  text-align: center;
-  font-size: 2.5rem;
-  color: #fff;
-  margin-bottom: 3rem;
-  text-transform: uppercase;
-}
-
-.faq-container {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.faq-item {
-  background: rgba(10, 14, 39, 0.6);
-  border: 1px solid rgba(0, 212, 255, 0.15);
-  border-radius: 12px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  overflow: hidden;
-}
-
-.faq-item:hover {
-  border-color: rgba(0, 212, 255, 0.4);
-  background: rgba(0, 212, 255, 0.05);
-}
-
-.faq-item.active {
-  border-color: #00d4ff;
-  background: rgba(0, 212, 255, 0.08);
-  box-shadow: 0 5px 20px rgba(0, 212, 255, 0.1);
-}
-
-.faq-question {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.5rem;
-}
-
-.faq-question h3 {
-  color: #fff;
-  font-size: 1.1rem;
+  color: #a1c4fd;
+  margin-bottom: 1.5rem;
   font-weight: 500;
 }
 
-.faq-icon {
-  color: #00d4ff;
-  font-size: 1.5rem;
-  font-weight: bold;
-  transition: transform 0.3s;
+.text-content p {
+  color: #b0b8c8;
+  line-height: 1.8;
+  margin-bottom: 1.2rem;
+  font-size: 1.05rem;
 }
 
-.faq-item.active .faq-icon {
-  transform: rotate(180deg);
+.text-content blockquote {
+  border-left: 3px solid #00d4ff;
+  padding-left: 1rem;
+  color: #ffffff;
+  font-style: italic;
+  margin-top: 2rem;
+  font-size: 1.1rem;
 }
 
-.faq-answer {
-  max-height: 0;
+/* 🚀 मुख्य इमेज बॉक्स */
+.small-image-box {
+  flex: 0 0 45%; 
+  aspect-ratio: 16 / 9; 
+  border-radius: 15px;
   overflow: hidden;
-  transition: max-height 0.4s ease-out, padding 0.4s ease-out;
-  padding: 0 1.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  box-shadow: 0 0 25px rgba(0, 212, 255, 0.15);
 }
 
-.faq-item.active .faq-answer {
-  max-height: 200px;
-  padding-bottom: 1.5rem;
+.small-image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+  transition: transform 0.4s ease;
 }
 
-.faq-answer p {
+.small-image-box:hover img {
+  transform: scale(1.05);
+}
+
+/* Vision Layout (Image Left, Text Right) */
+.vision-section {
+  flex-direction: row-reverse;
+}
+
+/* Section Header (Center) */
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  width: 100%;
+}
+
+.section-header h2 {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+.section-header p {
+  color: #00d4ff;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+}
+
+/* 5 Objectives */
+.objectives-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  width: 100%;
+  justify-content: center;
+}
+
+.objective-card {
+  background: rgba(0, 212, 255, 0.05);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  padding: 1rem 2rem;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+}
+
+.objective-card:hover {
+  background: rgba(0, 212, 255, 0.15);
+  box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
+}
+
+.objective-card h4 {
+  color: #ffffff;
+  font-size: 1rem;
+  margin: 0;
+}
+
+/* =========================================
+   🚀 5 Pillars (Drone Systems) - 3 up, 2 down centered
+   ========================================= */
+.pillars-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  width: 100%;
+}
+
+.pillar-item {
+  background: rgba(10, 14, 39, 0.7);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border-left: 3px solid #00d4ff;
+  text-align: left;
+  flex: 0 0 calc(33.333% - 1rem); 
+  min-width: 300px;
+}
+
+.pillar-item h4 {
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.pillar-item p {
   color: #a0a8c0;
+  font-size: 0.95rem;
   line-height: 1.6;
 }
 
 /* =========================================
-   KEYFRAMES
+   🚀 Technology Applications (4 in a Row)
    ========================================= */
-@keyframes twinkleStars {
-  0% { opacity: 0.5; }
-  100% { opacity: 1; }
+.applications-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 👈 1 row me 4 images */
+  gap: 1.5rem;
+  width: 100%;
+  text-align: left;
 }
 
-@keyframes rotateEarth {
-  0% { background-position: 0 0; }
-  100% { background-position: 400px 0; }
+.app-card {
+  background: rgba(10, 14, 39, 0.4);
+  padding: 1rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.05);
+  transition: border 0.3s ease;
 }
 
-@keyframes floatDrone {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
-  100% { transform: translateY(0px); }
+.app-card:hover {
+  border-color: rgba(0, 212, 255, 0.5);
 }
 
-@keyframes pulseBadge {
-  0% { box-shadow: 0 0 10px rgba(0, 212, 255, 0.2); }
-  100% { box-shadow: 0 0 25px rgba(0, 212, 255, 0.6); }
+.app-image {
+  width: 100%;
+  aspect-ratio: 16 / 9; 
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.app-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.app-card:hover .app-image img {
+  transform: scale(1.05);
+}
+
+.app-card h4 {
+  color: #00d4ff;
+  font-size: 1.05rem; /* छोटा फॉन्ट ताकि 4 में फिट हो जाए */
+  margin-bottom: 0.4rem;
+  line-height: 1.3;
+}
+
+.app-card p {
+  color: #a0a8c0;
+  font-size: 0.85rem; /* कंटेंट भी थोड़ा छोटा */
+  line-height: 1.5;
 }
 
 /* =========================================
-   📱 RESPONSIVE DESIGN
+   🚀 PROFESSIONAL ROADMAP SECTION
    ========================================= */
+.roadmap-section-wrapper {
+  padding-bottom: 3rem;
+}
+
+.roadmap-timeline {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  position: relative;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 2px solid rgba(0, 212, 255, 0.3);
+}
+
+.roadmap-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  flex: 1;
+  opacity: 0; 
+  animation: slideInLeft 0.8s forwards;
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.roadmap-item::before {
+  content: '';
+  position: absolute;
+  top: -2.6rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 14px;
+  height: 14px;
+  background: #0a0e27;
+  border: 3px solid #00d4ff;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #00d4ff;
+}
+
+.roadmap-item.active::before {
+  background: #00d4ff;
+  box-shadow: 0 0 20px #00d4ff, 0 0 30px #00d4ff;
+}
+
+.roadmap-item .year {
+  display: block;
+  color: #00d4ff;
+  font-weight: bold;
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  margin-top: 10px;
+}
+
+.roadmap-item p {
+  color: #a0a8c0;
+  font-size: 0.9rem;
+  max-width: 130px; 
+  line-height: 1.4;
+}
+
+.roadmap-note {
+  text-align: center;
+  font-size: 0.85rem;
+  color: #888;
+  font-style: italic;
+  margin-top: 2rem;
+  width: 100%;
+}
+
+/* =========================================
+   📱 RESPONSIVE DESIGN (Mobile aur Tablet fix)
+   ========================================= */
+@media (max-width: 1100px) {
+  .applications-grid {
+    grid-template-columns: repeat(2, 1fr); /* Tablet pe 2 column */
+  }
+}
+
 @media (max-width: 1024px) {
-  .feature-section {
-    padding: 6rem 2rem;
-    gap: 2rem;
-  }
-  
-  .roadmap-box {
-    flex-direction: column;
-  }
-  
-  .roadmap-left {
-    border-right: none;
-    border-bottom: 1px solid rgba(0, 212, 255, 0.1);
-    padding: 3rem 2rem;
-    text-align: center;
-  }
-  
-  .roadmap-right {
-    padding: 3rem 2rem;
+  .pillar-item {
+    flex: 0 0 calc(50% - 1rem); /* Tablet pe 2 boxes */
   }
 }
 
-/* Tablet & Mobile Hero Layout */
 @media (max-width: 900px) {
-  .hero-content {
+  .mission-section, .vision-section {
     flex-direction: column;
-    text-align: center;
     gap: 2rem;
   }
 
-  .hero-image-container {
-    justify-content: center;
+  .small-image-box {
+    flex: none;
+    width: 100%;
   }
 
-  .hero-text-container {
-    padding-left: 0;
-    text-align: center;
+  .pillar-item {
+    flex: 0 0 100%; /* Mobile pe 1 box */
+  }
+
+  /* Roadmap Mobile (Vertical) */
+  .roadmap-timeline {
+    flex-direction: column;
+    gap: 2rem;
+    border-top: none;
+    padding-top: 0;
+    border-left: 2px solid rgba(0, 212, 255, 0.3);
+    padding-left: 2rem;
+    margin-left: 1rem;
+  }
+
+  .roadmap-item {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .roadmap-item::before {
+    top: 0;
+    left: -2.7rem;
+    transform: translateY(0);
+  }
+
+  .roadmap-item p {
+    max-width: 100%;
   }
 }
 
-@media (max-width: 768px) {
-  .feature-section, .feature-section.reverse {
-    flex-direction: column;
-    text-align: center;
-    padding: 4rem 1.5rem;
-  }
-  
-  .text-content h2 {
-    font-size: 2rem;
-  }
-  
-  .milestone {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-  
-  .year {
-    align-self: flex-start;
-  }
-  
-  .faq-question h3 {
-    font-size: 1rem;
-  }
-}
-
-/* Accessibility: Reduced Motion */
-@media (prefers-reduced-motion: reduce) {
-  .hero-jet, .feature-img, .earth-sphere, .hud-badge {
-    animation: none;
-  }
-  .fade-up {
-    opacity: 1;
-    transform: none;
-    transition: none;
+@media (max-width: 600px) {
+  .applications-grid {
+    grid-template-columns: 1fr; /* Mobile pe 1 column me images */
   }
 }

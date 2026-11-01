@@ -1,189 +1,178 @@
-import { useEffect, useRef, useState } from 'react';
 import './OurMission.css';
 
-// 🚀 अपनी इमेजेस इम्पोर्ट करें
-import satelliteImg from '../assets/satellite.png';
-import jetImg from '../assets/jet.png';
-import droneCloudsImg from '../assets/drone-clouds.png';
+// 🚀 सभी इमेजेस इम्पोर्ट 
+import img1 from '../assets/mission/Screenshot 2026-11-01 233951.png';
+import img2 from '../assets/mission/Screenshot 2026-11-01 234004.png';
+import img3 from '../assets/mission/Screenshot 2026-11-01 234020.png';
+import img4 from '../assets/mission/Screenshot 2026-11-01 234055.png';
+import img5 from '../assets/mission/Screenshot 2026-11-01 234109.png';
 
 function OurMission() {
-  const sectionsRef = useRef([]);
-
-  // FAQ Accordion State
-  const [openFaq, setOpenFaq] = useState(null);
-
-  // 🚀 Scroll Animation Logic (Intersection Observer)
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-          }
-        });
-      },
-      { threshold: 0.2 }
-    );
-
-    sectionsRef.current.forEach((el) => {
-      if (el) observer.observe(el);
-    });
-
-    return () => observer.disconnect();
-  }, []);
-
-  const addToRefs = (el) => {
-    if (el && !sectionsRef.current.includes(el)) {
-      sectionsRef.current.push(el);
-    }
-  };
-
-  const toggleFaq = (index) => {
-    setOpenFaq(openFaq === index ? null : index);
-  };
-
-  const faqData = [
-    { q: "What exactly is VYOM-X?", a: "VYOM-X (Visionary Youth of Modern Xploration) is an aerospace initiative focused on developing autonomous flight systems, satellite-connected drones, and technology designed to survive extreme environments." },
-    { q: "What is the FROST-60 project?", a: "FROST-60 is our ultimate 2031 goal. It is an advanced experimental drone platform specifically engineered to operate flawlessly in extreme cold environments down to -60°C." },
-    { q: "How will the drones connect to satellites?", a: "We are integrating long-range telemetry and satellite communication modules into our prototypes by 2030. This ensures Beyond-Line-Of-Sight (BLOS) control and real-time data transmission from anywhere on Earth." },
-    { q: "Is VYOM-X an Indian company?", a: "Yes! Our core philosophy is 'Built in India. Designed for the Future.' We aim to build world-class aerospace technology from our homeland to push the boundaries of global space exploration." },
-    { q: "Are the milestones mentioned on this page achieved?", a: "No, the 2027-2031 roadmap represents our proposed goals and future milestones. We are currently in the foundational research phase, working towards these targets." },
-    { q: "How can I collaborate with VYOM-X?", a: "We are always looking for passionate engineers, space enthusiasts, and partners. You can reach out to us directly through the Contact Us page." }
-  ];
-
   return (
-    <div className="mission-cinematic-wrapper">
+    <div className="mission-wrapper">
       
-      {/* 1. CINEMATIC SPACE OPENING (Split Layout) */}
-      <section className="hero-section">
-        <div className="stars-bg"></div>
-        <div className="earth-container">
-          <div className="earth-glow"></div>
-          <div className="earth-sphere"></div>
+      {/* 1. OUR MISSION (Text Left, Image Right) */}
+      <section className="mission-section">
+        <div className="text-content">
+          <h1>OUR MISSION</h1>
+          <h3>Engineering Intelligence. Connecting Possibilities. Expanding Horizons.</h3>
+          <p>
+            VYOM-X aims to explore and develop intelligent autonomous aerial systems by integrating drone technology, satellite-assisted communication, artificial intelligence, and centralized command infrastructure.
+          </p>
+          <p>
+            Our mission is to research scalable, energy-efficient, and intelligent aerial platforms capable of operating across challenging geographical environments and supporting multiple civilian applications.
+          </p>
+        </div>
+        <div className="small-image-box">
+          <img src={img1} alt="Mission" />
+        </div>
+      </section>
+
+      {/* 5 OBJECTIVES */}
+      <section className="mission-section full-width-section">
+        <div className="objectives-grid">
+          <div className="objective-card"><h4>Autonomous Intelligence</h4></div>
+          <div className="objective-card"><h4>Satellite-Enabled Connectivity</h4></div>
+          <div className="objective-card"><h4>Extreme Environment Operations</h4></div>
+          <div className="objective-card"><h4>Multi-Mission Capabilities</h4></div>
+          <div className="objective-card"><h4>Accessible Innovation</h4></div>
+        </div>
+      </section>
+
+      {/* 2. OUR VISION 2031 (Image Left, Text Right) */}
+      <section className="mission-section vision-section">
+        <div className="small-image-box">
+          <img src={img2} alt="Vision 2031" />
+        </div>
+        <div className="text-content">
+          <h1>OUR VISION 2031</h1>
+          <h3>One Connected Network. Thousands of Intelligent Aerial Systems.</h3>
+          <p>
+            By 2031, VYOM-X aims to develop and launch its first integrated autonomous aerial technology product.
+          </p>
+          <p>
+            The long-term vision is to research a satellite-assisted, AI-enabled drone coordination ecosystem designed with the ambition of supporting up to 10,000 interconnected drones through a unified communication and command architecture.
+          </p>
+          <blockquote>
+            "Our ambition is not simply to build another drone. It is to explore a new way of connecting thousands of autonomous aerial systems."
+          </blockquote>
+        </div>
+      </section>
+
+      {/* 3. DRONE SYSTEMS (Center Heading, 3-2 Box Layout) */}
+      <section className="mission-section full-width-section">
+        <div className="section-header">
+          <h2>VYOM-X AUTONOMOUS DRONE SYSTEMS</h2>
+          <p>Beyond Individual Flight. Towards Intelligent Coordination.</p>
+        </div>
+        <div className="pillars-grid">
+          <div className="pillar-item">
+            <h4>Satellite Communication</h4>
+            <p>Satellite-assisted connectivity for geographically distributed operations.</p>
+          </div>
+          <div className="pillar-item">
+            <h4>Autonomous Drone Coordination</h4>
+            <p>Intelligent multi-drone coordination architecture with a long-term 10,000-drone development ambition.</p>
+          </div>
+          <div className="pillar-item">
+            <h4>AI-Powered Navigation</h4>
+            <p>Intelligent route planning, obstacle awareness, and autonomous decision-making.</p>
+          </div>
+          <div className="pillar-item">
+            <h4>Extreme Environment Engineering</h4>
+            <p>Research into remote oceanic, high-altitude, and sub-zero environments (-60°C).</p>
+          </div>
+          <div className="pillar-item">
+            <h4>Unified Command Infrastructure</h4>
+            <p>Centralized monitoring, mission planning, and operational oversight.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. COMMAND & CONTROL (Text Left, Image Right) */}
+      <section className="mission-section">
+        <div className="text-content">
+          <h1>ONE COMMAND. ONE CONNECTED ECOSYSTEM.</h1>
+          <h3>A Unified Intelligence Platform for Distributed Aerial Operations.</h3>
+          <ul className="command-list">
+            <li>Fleet monitoring</li>
+            <li>Satellite-assisted communication</li>
+            <li>AI-based mission planning</li>
+            <li>Drone health & battery monitoring</li>
+            <li>Operational coordination</li>
+            <li>Emergency and fail-safe management</li>
+          </ul>
+          <p className="disclaimer">* Proposed future development concept.</p>
+        </div>
+        <div className="small-image-box">
+          <img src={img3} alt="Command Center" />
+        </div>
+      </section>
+
+      {/* 5. TECHNOLOGY APPLICATIONS (Center Heading, 4 in a Row) */}
+      <section className="mission-section full-width-section">
+        <div className="section-header">
+          <h2>TECHNOLOGY FOR A CONNECTED WORLD</h2>
+        </div>
+        {/* 👇 यहाँ 4 इमेजेस एक रो में आएंगी */}
+        <div className="applications-grid">
+          <div className="app-card">
+            <div className="app-image"><img src={img4} alt="Environmental Monitoring" /></div>
+            <h4>Environmental Monitoring</h4>
+            <p>Forests, climate and environmental observation.</p>
+          </div>
+          <div className="app-card">
+            <div className="app-image"><img src={img5} alt="Ocean Intelligence" /></div>
+            <h4>Ocean Intelligence</h4>
+            <p>Ocean observation and remote marine monitoring.</p>
+          </div>
+          <div className="app-card">
+            <div className="app-image"><img src={img1} alt="Disaster Response" /></div>
+            <h4>Disaster Response</h4>
+            <p>Emergency supply drops and aerial surveillance in disaster zones.</p>
+          </div>
+          <div className="app-card">
+            <div className="app-image"><img src={img2} alt="Infrastructure Inspection" /></div>
+            <h4>Infrastructure Inspection</h4>
+            <p>Monitoring of power grids, pipelines and difficult-to-reach structures.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* 6. ROADMAP (Center Heading, Full Width Timeline) */}
+      <section className="mission-section full-width-section roadmap-section-wrapper">
+        <div className="section-header">
+          <h2>THE ROAD TO 2031</h2>
         </div>
         
-        <div className="hero-content">
-          {/* 🚀 इमेज बाईं तरफ */}
-          <div className="hero-image-container">
-            <img src={jetImg} alt="VYOM-X Jet" className="hero-jet" />
+        <div className="roadmap-timeline">
+          <div className="roadmap-item" style={{ animationDelay: '0.1s' }}>
+            <span className="year">2026</span>
+            <p>Foundation & Research</p>
           </div>
-          
-          {/* 🚀 टेक्स्ट दाईं तरफ */}
-          <div className="hero-text-container">
-            <h1 className="hero-title">
-              OUR MISSION <br/>
-              <span className="glow-text">BEYOND THE SKY. BEYOND LIMITS.</span>
-            </h1>
-            <p className="hero-subtitle">Autonomous Flight. Satellite Connectivity. Extreme Survival.</p>
+          <div className="roadmap-item" style={{ animationDelay: '0.3s' }}>
+            <span className="year">2027</span>
+            <p>Concept & Design</p>
           </div>
-        </div>
-      </section>
-
-      {/* 2. SPLIT LAYOUTS */}
-      
-      {/* Slide 1: Image Right, Text Left */}
-      <section className="feature-section fade-up" ref={addToRefs}>
-        <div className="text-content">
-          <h2>Autonomous Drone Flight</h2>
-          <p>Experience next-generation 3D movement, depth, and perspective. Our drones travel above Earth's atmosphere with electric-blue engine glows and minimal motion trails, redefining what's possible in intelligent flight.</p>
-        </div>
-        <div className="image-content">
-          <img src={jetImg} alt="Autonomous Jet" className="feature-img" />
-        </div>
-      </section>
-
-      {/* Slide 2: Image Left, Text Right (Reverse) */}
-      <section className="feature-section reverse fade-up" ref={addToRefs}>
-        <div className="text-content">
-          <div className="hud-badge">SATELLITE LINK: CONNECTED</div>
-          <h2>Satellite Communication</h2>
-          <p>Realistic circular trajectories with animated blue communication beams. Digital data particles travel through the connection, ensuring ultra-low latency telemetry and global connectivity for our autonomous systems.</p>
-        </div>
-        <div className="image-content">
-          <img src={satelliteImg} alt="Satellite Connection" className="feature-img" />
-        </div>
-      </section>
-
-      {/* Slide 3: Image Right, Text Left */}
-      <section className="feature-section fade-up" ref={addToRefs}>
-        <div className="text-content">
-          <h2>FROST-60 Extreme Environment</h2>
-          <p>Engineering for the extreme. Our technology operates flawlessly in Arctic conditions with advanced thermal visualization, ice-resistant materials, and adaptive battery management systems designed for -60°C.</p>
-        </div>
-        <div className="image-content">
-          <img src={droneCloudsImg} alt="Frost Drone" className="feature-img" />
-        </div>
-      </section>
-
-      {/* 3. NEXT 5 YEARS ROADMAP (Half-Half Box) */}
-      <section className="roadmap-box-section fade-up" ref={addToRefs}>
-        <div className="roadmap-box">
-          <div className="roadmap-left">
-            <h2>Next 5 Years Plan</h2>
-            <p className="years-text">2027 – 2031</p>
-            <p className="roadmap-desc">Our strategic roadmap to push autonomous aerospace engineering to its absolute limits.</p>
+          <div className="roadmap-item" style={{ animationDelay: '0.5s' }}>
+            <span className="year">2028</span>
+            <p>Prototype Development</p>
           </div>
-          
-          <div className="roadmap-right">
-            <div className="milestone">
-              <span className="year">2027</span>
-              <div className="milestone-info">
-                <h4>Foundation & Research</h4>
-                <p>Establishment of VYOM-X, aerospace research, and AI flight systems.</p>
-              </div>
-            </div>
-            <div className="milestone">
-              <span className="year">2028</span>
-              <div className="milestone-info">
-                <h4>First Prototype</h4>
-                <p>Experimental drone prototype, autonomous navigation, and flight stability.</p>
-              </div>
-            </div>
-            <div className="milestone">
-              <span className="year">2029</span>
-              <div className="milestone-info">
-                <h4>Extreme Testing</h4>
-                <p>Low-temperature testing, thermal management, and -60°C research.</p>
-              </div>
-            </div>
-            <div className="milestone">
-              <span className="year">2030</span>
-              <div className="milestone-info">
-                <h4>Satellite Connectivity</h4>
-                <p>Communication integration, long-range telemetry, and advanced AI.</p>
-              </div>
-            </div>
-            <div className="milestone ultimate">
-              <span className="year">2031</span>
-              <div className="milestone-info">
-                <h4>VYOM-X FROST-60</h4>
-                <p>The ultimate goal: Advanced drone platform tested for extreme cold operations.</p>
-              </div>
-            </div>
+          <div className="roadmap-item" style={{ animationDelay: '0.7s' }}>
+            <span className="year">2029</span>
+            <p>Integration & Testing</p>
+          </div>
+          <div className="roadmap-item" style={{ animationDelay: '0.9s' }}>
+            <span className="year">2030</span>
+            <p>System Validation</p>
+          </div>
+          <div className="roadmap-item active" style={{ animationDelay: '1.1s' }}>
+            <span className="year">2031</span>
+            <p>First Product Launch Target</p>
           </div>
         </div>
-      </section>
-
-      {/* 4. FAQ SECTION */}
-      <section className="faq-section fade-up" ref={addToRefs}>
-        <h2 className="section-title">Frequently Asked Questions</h2>
-        <div className="faq-container">
-          {faqData.map((item, index) => (
-            <div 
-              key={index} 
-              className={`faq-item ${openFaq === index ? 'active' : ''}`}
-              onClick={() => toggleFaq(index)}
-            >
-              <div className="faq-question">
-                <h3>{item.q}</h3>
-                <span className="faq-icon">{openFaq === index ? '−' : '+'}</span>
-              </div>
-              <div className="faq-answer">
-                <p>{item.a}</p>
-              </div>
-            </div>
-          ))}
-        </div>
+        
+        <p className="roadmap-note">* These are proposed milestones subject to technical feasibility, funding, testing, and regulatory approvals.</p>
       </section>
 
     </div>
