@@ -33,7 +33,6 @@
   margin-bottom: 1rem;
   letter-spacing: 1px;
   line-height: 1.2;
-  
   background: linear-gradient(to right, #ffffff, #00d4ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -145,94 +144,116 @@
 }
 
 /* =========================================
-   🚀 3.5 नया सेक्शन: Drones Promo
+   🚀 3.5 Drones Auto-Slider Section
    ========================================= */
-.home-drones-promo {
-  padding: 6rem 2rem;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  background: radial-gradient(circle at center, rgba(0, 212, 255, 0.05) 0%, transparent 70%);
+.home-drones-slider-section {
+  padding: 5rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.drones-promo-container {
+.drones-section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #00d4ff;
+  margin-bottom: 3rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
+}
+
+/* पूरा कार्ड (ट्रांसपेरेंट ग्लास इफ़ेक्ट) */
+.drone-slider-card {
   display: flex;
+  flex-direction: row;
   align-items: center;
-  gap: 4rem;
-  max-width: 1200px;
-  width: 100%;
-  background: rgba(10, 14, 39, 0.6);
+  gap: 3rem;
+  background: rgba(10, 14, 39, 0.4); /* 🚀 ट्रांसपेरेंट बैकग्राउंड */
   border: 1px solid rgba(0, 212, 255, 0.2);
   border-radius: 20px;
   padding: 3rem;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(12px); /* ग्लास इफ़ेक्ट */
+  text-decoration: none;
+  transition: all 0.4s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
-.drones-promo-image {
+.drone-slider-card:hover {
+  border-color: #00d4ff;
+  box-shadow: 0 10px 40px rgba(0, 212, 255, 0.2);
+  transform: translateY(-5px);
+}
+
+/* बाईं तरफ का टेक्स्ट */
+.drone-slider-text {
   flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
-.drones-promo-image img {
-  width: 100%;
-  border-radius: 15px;
-  box-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
-  transition: transform 0.3s ease;
-}
-
-.drones-promo-image img:hover {
-  transform: scale(1.03);
-}
-
-.drones-promo-text {
-  flex: 1;
-}
-
-.promo-badge {
+.drone-slider-badge {
   color: #00ff88;
   font-size: 0.85rem;
   font-weight: bold;
   letter-spacing: 2px;
   margin-bottom: 1rem;
-  display: inline-block;
-  background: rgba(0, 255, 136, 0.1);
-  padding: 5px 12px;
-  border-radius: 20px;
-  border: 1px solid rgba(0, 255, 136, 0.3);
 }
 
-.drones-promo-text h2 {
-  font-size: 2.5rem;
+.drone-slider-text h2 {
+  font-size: 2.2rem;
   color: #ffffff;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   line-height: 1.2;
 }
 
-.drones-promo-text p {
-  color: #a0a8c0;
+.drone-slider-text h4 {
   font-size: 1.1rem;
-  line-height: 1.6;
+  color: #00d4ff;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+.drone-slider-text p {
+  color: #b0b8c8;
+  font-size: 1.05rem;
+  line-height: 1.7;
   margin-bottom: 2rem;
 }
 
-.explore-drones-btn {
-  background: #00d4ff;
-  color: #000;
-  padding: 12px 25px;
-  border-radius: 30px;
-  text-decoration: none;
+.click-hint {
+  color: #00d4ff;
   font-weight: bold;
-  font-size: 1rem;
-  display: inline-block;
-  transition: all 0.3s ease;
+  font-size: 0.95rem;
   text-transform: uppercase;
   letter-spacing: 1px;
+  transition: color 0.3s;
 }
 
-.explore-drones-btn:hover {
-  background: #fff;
-  box-shadow: 0 0 20px rgba(0, 212, 255, 0.6);
-  transform: translateY(-3px);
+.drone-slider-card:hover .click-hint {
+  color: #ffffff;
+}
+
+/* दाईं तरफ का इमेज बॉक्स (ट्रांसपेरेंट) */
+.drone-slider-image-box {
+  flex: 1;
+  height: 350px;
+  border-radius: 15px;
+  overflow: hidden;
+  /* 🚀 इमेज बॉक्स भी ट्रांसपेरेंट है, बस हल्की नीली रोशनी है */
+  border: 1px solid rgba(0, 212, 255, 0.15); 
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.1);
+}
+
+.slider-img-anim {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: fadeZoom 1s ease-out forwards; /* इमेज बदलते समय ज़ूम इफेक्ट */
+}
+
+@keyframes fadeZoom {
+  0% { opacity: 0; transform: scale(0.95); }
+  100% { opacity: 1; transform: scale(1); }
 }
 
 /* =========================================
@@ -241,7 +262,15 @@
 @media (max-width: 1024px) {
   .hero-text-section h1 { font-size: 2rem; }
   .hero-boxes-section { height: 40vh; }
-  .drones-promo-container { flex-direction: column; text-align: center; }
+  
+  .drone-slider-card {
+    flex-direction: column;
+    padding: 2rem;
+  }
+  .drone-slider-image-box {
+    width: 100%;
+    height: 250px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -259,6 +288,5 @@
     height: 250px; 
   }
 
-  .drones-promo-container { padding: 2rem 1.5rem; }
-  .drones-promo-text h2 { font-size: 2rem; }
+  .drone-slider-text h2 { font-size: 1.8rem; }
 }
