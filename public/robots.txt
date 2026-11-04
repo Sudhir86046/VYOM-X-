@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://vyom-xin.vercel.app/sitemap.xml
+Sitemap: https://vyom-x.online/sitemap.xml

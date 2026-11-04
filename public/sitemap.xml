@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://vyom-xin.vercel.app/</loc>
+    <loc>https://vyom-x.online/</loc>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://vyom-xin.vercel.app/space-news</loc>
+    <loc>https://vyom-x.online/space-news</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vyom-xin.vercel.app/drones</loc>
+    <loc>https://vyom-x.online/drones</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vyom-xin.vercel.app/past-launches</loc>
+    <loc>https://vyom-x.online/past-launches</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vyom-xin.vercel.app/space-heroes</loc>
+    <loc>https://vyom-x.online/space-heroes</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vyom-xin.vercel.app/our-mission</loc>
+    <loc>https://vyom-x.online/our-mission</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vyom-xin.vercel.app/about</loc>
+    <loc>https://vyom-x.online/about</loc>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://vyom-xin.vercel.app/contact</loc>
+    <loc>https://vyom-x.online/contact</loc>
     <priority>0.7</priority>
   </url>
 </urlset>

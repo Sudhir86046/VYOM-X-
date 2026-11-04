@@ -24,13 +24,13 @@ function Footer() {
           </p>
         </div>
 
-        {/* कॉलम 2: क्विक लिंक्स (यहाँ About और Past Launches हैं) */}
+        {/* कॉलम 2: क्विक लिंक्स */}
         <div className="footer-column">
           <h3 className="footer-heading">Quick Links</h3>
           <ul className="footer-links">
             <li><Link to="/" onClick={handleHomeClick}>Home</Link></li>
             <li><Link to="/space-news">Space News</Link></li>
-            <li><Link to="/drones">Drones & Robotics</Link></li> {/* 🚀 Drones यहाँ जोड़ा */}
+            <li><Link to="/drones">Drones & Robotics</Link></li>
             <li><Link to="/past-launches">Past Launches</Link></li>
             <li><Link to="/about">About Us</Link></li>
             <li><Link to="/space-heroes">Space Heroes</Link></li>
@@ -50,7 +50,7 @@ function Footer() {
           </ul>
         </div>
 
-        {/* कॉलम 4: सोशल मीडिया */}
+        {/* कॉलम 4: सोशल मीडिया & Careers */}
         <div className="footer-column">
           <h3 className="footer-heading">Follow Us</h3>
           <div className="social-links">
@@ -66,6 +66,13 @@ function Footer() {
               </svg>
               LinkedIn
             </a>
+            {/* 🚀 Careers Email जोड़ा गया */}
+            <a href="mailto:careers@vyom-x.online" style={{ display: 'flex', alignItems: 'center', gap: '8px', marginTop: '10px' }}>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+              </svg>
+              Careers
+            </a>
           </div>
         </div>
 
@@ -74,7 +81,12 @@ function Footer() {
       {/* नीचे का कॉपीराइट हिस्सा */}
       <div className="footer-bottom">
         <p>&copy; {new Date().getFullYear()} VYOM-X. All rights reserved.</p>
-        <p className="made-with">Made with 🚀 for Space Enthusiasts</p>
+        
+        {/* 🚀 प्रोफेशनल टेक्स्ट और ईमेल लिंक */}
+        <div className="footer-bottom-right">
+          <a href="mailto:careers@vyom-x.online" className="careers-link">careers@vyom-x.online</a>
+          <p className="made-with">Engineering the Future</p>
+        </div>
       </div>
     </footer>
   );
