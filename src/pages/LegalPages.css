@@ -1,76 +1,289 @@
+/* =========================================
+   🚀 VYOM-X PREMIUM AEROSPACE DOCUMENTATION
+   ========================================= */
+html {
+  scroll-behavior: smooth;
+}
+
 .legal-page-wrapper {
   width: 100%;
   min-height: 100vh;
-  padding: 120px 2rem 50px 2rem;
+  padding: 140px 2rem 80px 2rem;
   display: flex;
-  justify-content: center;
-  background-color: transparent;
+  flex-direction: column;
+  align-items: center;
+  background-color: transparent; /* कोई बॉक्स नहीं */
+  position: relative;
+  z-index: 1;
 }
 
-.legal-content {
-  max-width: 900px;
+.legal-doc-container {
+  max-width: 1000px; /* पढ़ने के लिए परफेक्ट चौड़ाई */
   width: 100%;
-  background: rgba(10, 14, 39, 0.7);
+}
+
+/* =========================================
+   🚀 SECTION A: DOCUMENT HEADER (Spec Sheet Style)
+   ========================================= */
+.doc-header {
+  border-bottom: 2px solid rgba(0, 212, 255, 0.3);
+  padding-bottom: 2rem;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.doc-header::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 150px;
+  height: 2px;
+  background: #00d4ff;
+  box-shadow: 0 0 10px #00d4ff;
+}
+
+.doc-classification {
+  color: #00d4ff;
+  font-family: monospace;
+  font-size: 0.85rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.doc-header h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+  text-shadow: 0 4px 20px rgba(0,0,0,0.8);
+}
+
+.doc-meta-grid {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  font-family: monospace;
+  font-size: 0.85rem;
+  color: #a0a8c0;
+  margin-top: 1.5rem;
+}
+
+.doc-meta-grid span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.doc-meta-grid span::before {
+  content: '●';
+  color: #00d4ff;
+  font-size: 0.6rem;
+}
+
+/* =========================================
+   🚀 SECTION B: INTRODUCTION
+   ========================================= */
+.doc-intro {
+  margin-bottom: 4rem;
+}
+
+.doc-intro h2 {
+  font-size: 1.8rem;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.doc-intro p {
+  font-size: 1.2rem;
+  color: #d1d5db;
+  line-height: 1.8;
+  text-align: justify;
+}
+
+/* =========================================
+   🚀 SECTION D: STICKY NAVIGATION
+   ========================================= */
+.floating-nav {
+  position: sticky;
+  top: 90px;
+  z-index: 100;
+  background: rgba(6, 9, 19, 0.85);
+  backdrop-filter: blur(12px);
   border: 1px solid rgba(0, 212, 255, 0.2);
+  border-radius: 50px;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: flex-start;
+  overflow-x: auto;
+  gap: 1.5rem;
+  margin-bottom: 4rem;
+  scrollbar-width: none; /* Firefox */
+}
+
+.floating-nav::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
+
+.floating-nav a {
+  color: #a0a8c0;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-family: monospace;
+  white-space: nowrap;
+  transition: all 0.3s;
+  padding: 5px 10px;
   border-radius: 20px;
-  padding: 3rem;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 0 30px rgba(0, 212, 255, 0.1);
+}
+
+.floating-nav a:hover, .floating-nav a.active {
+  color: #000;
+  background: #00d4ff;
+  font-weight: bold;
+  box-shadow: 0 0 15px rgba(0, 212, 255, 0.4);
+}
+
+/* =========================================
+   🚀 SECTION C: EDITORIAL CONTENT
+   ========================================= */
+.doc-section {
+  margin-bottom: 3.5rem;
+  scroll-margin-top: 160px; /* Navbar और floating nav के नीचे न कटे */
+}
+
+.doc-section-title {
+  display: flex;
+  align-items: baseline;
+  gap: 15px;
+  margin-bottom: 1.2rem;
+}
+
+.doc-section-title span {
+  color: #00d4ff;
+  font-size: 1.4rem;
+  font-weight: 800;
+  font-family: monospace;
+}
+
+.doc-section-title h3 {
+  color: #ffffff;
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.doc-section p {
+  line-height: 1.9;
+  font-size: 1.15rem; 
+  color: #d1d5db;
+  text-align: justify;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.6); /* बैकग्राउंड पर साफ़ पढ़ने के लिए */
+  margin-bottom: 1rem;
+}
+
+.doc-section ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.doc-section li {
+  margin-bottom: 1rem;
+  padding-left: 1.8rem;
+  position: relative;
+  line-height: 1.8;
+  font-size: 1.15rem;
   color: #d1d5db;
 }
 
-.legal-content h1 {
+.doc-section li::before {
+  content: '▹';
   color: #00d4ff;
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 1.2rem;
 }
 
-.legal-content .last-updated {
-  color: #888;
-  font-size: 0.9rem;
-  margin-bottom: 2rem;
-  font-style: italic;
+/* =========================================
+   🚀 SECTION E: DOCUMENT ENDING
+   ========================================= */
+.doc-ending {
+  margin-top: 5rem;
+  border-top: 1px solid rgba(0, 212, 255, 0.2);
+  padding-top: 3rem;
+  text-align: center;
 }
 
-.legal-content h2 {
+.doc-ending h3 {
   color: #fff;
   font-size: 1.5rem;
-  margin-top: 2rem;
   margin-bottom: 1rem;
 }
 
-.legal-content p {
-  line-height: 1.8;
-  margin-bottom: 1rem;
-  font-size: 1rem;
+.doc-ending p {
+  color: #a0a8c0;
+  margin-bottom: 2rem;
 }
 
-.legal-content ul {
-  margin-left: 1.5rem;
-  margin-bottom: 1.5rem;
-  line-height: 1.8;
+.doc-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
 }
 
-.legal-content li {
-  margin-bottom: 0.5rem;
-}
-
-.legal-content a {
+.doc-links a {
   color: #00d4ff;
   text-decoration: none;
+  font-family: monospace;
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  padding: 8px 20px;
+  border-radius: 5px;
+  transition: all 0.3s;
 }
 
-.legal-content a:hover {
-  text-decoration: underline;
+.doc-links a:hover {
+  background: rgba(0, 212, 255, 0.1);
+  border-color: #00d4ff;
 }
 
+.back-to-top-btn {
+  background: transparent;
+  color: #fff;
+  border: 1px solid #fff;
+  padding: 10px 25px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.back-to-top-btn:hover {
+  background: #fff;
+  color: #000;
+}
+
+/* =========================================
+   📱 RESPONSIVE
+   ========================================= */
 @media (max-width: 768px) {
-  .legal-content {
-    padding: 2rem 1.5rem;
-  }
-  .legal-content h1 {
-    font-size: 2rem;
+  .legal-page-wrapper { padding: 120px 1.5rem 50px 1.5rem; }
+  .doc-header h1 { font-size: 2rem; }
+  .doc-intro h2 { font-size: 1.5rem; }
+  .doc-section p { font-size: 1.05rem; text-align: left; }
+  .doc-section-title h3 { font-size: 1.3rem; }
+  
+  .floating-nav {
+    top: 70px;
+    padding: 8px 15px;
+    border-radius: 10px;
   }
 }
