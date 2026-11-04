@@ -3,12 +3,10 @@ import './Home.css';
 import AgencyGrid from '../components/AgencyGrid'; 
 import RocketSlider from '../components/RocketSlider';
 import TodayLaunches from '../components/TodayLaunches'; 
-import scientistsImg from '../assets/scientists.png'; 
 import { Link } from 'react-router-dom'; 
 
-// 🚀 YouTube Lite Embed के लिए इम्पोर्ट (साइट फास्ट करने के लिए)
-import LiteYouTubeEmbed from 'react-lite-youtube-embed';
-import 'react-lite-youtube-embed/dist/LiteYouTubeEmbed.css';
+// 🚀 Scientists Image (Right Side)
+import scientistsImg from '../assets/scientists.png'; 
 
 // 🚀 6 ड्रोन्स की इमेजेस
 import reaperImg from '../assets/drones/MQ-9_Reaper_UAV_(cropped).jpg';
@@ -20,14 +18,42 @@ import wingloongImg from '../assets/drones/GJ-1&GJ-2_at_Changchun_Airshow_202509
 
 function Home() {
   const [activeSlide, setActiveSlide] = useState(0);
+  const [activeQuote, setActiveQuote] = useState(0);
+
+  // 🚀 केवल 3 कोट्स (जैसा आपने कहा)
+  const quotesData = [
+    {
+      title: "INDIA",
+      text: '"Dream, dream, dream. Dreams transform into thoughts and thoughts result in action."',
+      author: "Dr. A.P.J. Abdul Kalam"
+    },
+    {
+      title: "USA",
+      text: '"That\'s one small step for a man, one giant leap for mankind."',
+      author: "Neil Armstrong"
+    },
+    {
+      title: "RUSSIA",
+      text: '"The Earth is blue... How wonderful. It is amazing."',
+      author: "Yuri Gagarin"
+    }
+  ];
+
+  // 🚀 हर 5 सेकंड में कोट बदलने का लॉजिक
+  useEffect(() => {
+    const quoteTimer = setInterval(() => {
+      setActiveQuote((prev) => (prev + 1) % quotesData.length);
+    }, 5000); 
+    return () => clearInterval(quoteTimer);
+  }, [quotesData.length]);
 
   const droneData = [
-    { name: 'MQ-9 Reaper', agency: 'General Atomics', desc: 'A remotely piloted aircraft capable of armed reconnaissance and precision strikes. It is a primary offensive strike drone used by the US Air Force.', img: reaperImg },
-    { name: 'RQ-4 Global Hawk', agency: 'Northrop Grumman', desc: 'A high-altitude, long-endurance unmanned aerial vehicle used primarily for surveillance and intelligence gathering by the US military.', img: globalhawkImg },
-    { name: 'Bayraktar TB2', agency: 'Baykar', desc: 'A Turkish medium-altitude long-endurance UAV capable of conducting armed reconnaissance and combat operations.', img: bayraktarImg },
-    { name: 'MQ-1 Predator', agency: 'General Atomics', desc: 'The predecessor to the Reaper, this RPA was used primarily by the USAF and CIA for aerial reconnaissance and forward observation.', img: predatorImg },
-    { name: 'IAI Eitan', agency: 'Israel Aerospace', desc: 'One of the largest UAVs in the world, designed by Israel Aerospace Industries for long-endurance strategic missions.', img: eitanImg },
-    { name: 'GJ-1 & GJ-2', agency: 'Chengdu Aircraft', desc: 'Chinese high-altitude, long-endurance unmanned aerial vehicles designed for surveillance and precision strike missions.', img: wingloongImg },
+    { name: 'MQ-9 Reaper', agency: 'General Atomics', desc: 'A remotely piloted aircraft capable of armed reconnaissance and precision strikes.', img: reaperImg },
+    { name: 'RQ-4 Global Hawk', agency: 'Northrop Grumman', desc: 'A high-altitude, long-endurance unmanned aerial vehicle used primarily for surveillance.', img: globalhawkImg },
+    { name: 'Bayraktar TB2', agency: 'Baykar', desc: 'A Turkish medium-altitude long-endurance UAV capable of conducting armed reconnaissance.', img: bayraktarImg },
+    { name: 'MQ-1 Predator', agency: 'General Atomics', desc: 'The predecessor to the Reaper, used primarily by the USAF and CIA for aerial reconnaissance.', img: predatorImg },
+    { name: 'IAI Eitan', agency: 'Israel Aerospace', desc: 'One of the largest UAVs in the world, designed for long-endurance strategic missions.', img: eitanImg },
+    { name: 'GJ-1 & GJ-2', agency: 'Chengdu Aircraft', desc: 'Chinese high-altitude, long-endurance unmanned aerial vehicles.', img: wingloongImg },
   ];
 
   useEffect(() => {
@@ -46,23 +72,41 @@ function Home() {
           <h1>EARTH IS OUR BEGINNING, NOT OUR BOUNDARY.</h1>
           <p>Exploring the Universe. Advancing Humanity. Redefining What's Possible</p>
         </div>
+        
         <div className="hero-boxes-section">
           
-          <div className="hero-left-box">
-            {/* 🚀 यहाँ LiteYouTubeEmbed लगा दिया है जो साइट को सुपरफास्ट करेगा */}
-            <LiteYouTubeEmbed
-              id="ROboUHfPUrU"
-              title="NASA Live Stream"
-              poster="hqdefault"
-            />
-            <div className="video-overlay"></div>
-            <div className="live-badge">
-              <span className="live-dot"></span> LIVE
+          {/* 🚀 LEFT SIDE: FILLED CONTENT (VYOM-X Info + Quotes) */}
+          <div className="hero-side box-content-left">
+            
+            {/* Top Half: Stable VYOM-X Info */}
+            <div className="vx-stable-intro">
+              <div className="vx-badge">
+                <span className="vx-dot"></span> VYOM-X | BEYOND THE KNOWN
+              </div>
+              <h2>THE FUTURE IS NOT A DESTINATION.IT'S A FRONTIER TO EXPLORE.</h2>
+              <p>VYOM-X focuses on exploring emerging technologies across aerospace engineering, autonomous aerial systems, intelligent robotics, and advanced computational systems.</p>
             </div>
+
+            <div className="vx-divider"></div>
+
+            {/* Bottom Half: Rotating Quotes */}
+            <div className="vx-quotes-box">
+              <div key={activeQuote} className="quote-anim-container">
+                <h3 className="quote-title">{quotesData[activeQuote].title}</h3>
+                <p className="quote-text">{quotesData[activeQuote].text}</p>
+                <p className="quote-author">— {quotesData[activeQuote].author}</p>
+              </div>
+            </div>
+            
           </div>
 
-          <div className="hero-image-container">
-            <img src={scientistsImg} alt="Scientists and Space" className="hero-img" loading="lazy" />
+          {/* 🚀 RIGHT SIDE: SCIENTISTS IMAGE */}
+          <div className="hero-side box-scientists">
+            <img 
+              src={scientistsImg} 
+              alt="World Best Scientists" 
+              className="scientists-full-img" 
+            />
           </div>
           
         </div>
@@ -74,11 +118,9 @@ function Home() {
         <AgencyGrid /> 
       </div>
 
-      {/* 🚀 3. COMBINED SLIDER SECTION (Drones Left, Rockets Right) */}
+      {/* 🚀 3. COMBINED SLIDER SECTION */}
       <section className="home-combined-section">
         <div className="split-slider-container">
-          
-          {/* Left Side: Drones */}
           <div className="split-slider-panel">
             <h2 className="panel-title">Drones & Robotics</h2>
             <Link to="/drones" className="drone-slider-card">
@@ -94,16 +136,13 @@ function Home() {
               </div>
             </Link>
           </div>
-
-          {/* Right Side: Rockets */}
           <div className="split-slider-panel">
             <RocketSlider />
           </div>
-
         </div>
       </section>
 
-      {/* 🚀 4. VISION TEXT SECTION (सिर्फ टेक्स्ट, सबसे नीचे) */}
+      {/* 🚀 4. VISION TEXT SECTION */}
       <section className="home-vision-text-section">
         <span className="vision-label">OUR LONG-TERM VISION</span>
         <h2 className="vision-title">VYOM-X TECHNOLOGY VISION</h2>
