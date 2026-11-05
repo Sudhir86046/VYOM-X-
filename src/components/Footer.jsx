@@ -7,6 +7,10 @@ function Footer() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  // 🚀 तीनों ईमेल को एक साथ जोड़ने के लिए mailto लिंक
+  // यहाँ support मुख्य To में है, और amrita & sudhir CC में हैं
+  const supportTeamMail = "mailto:support@vyom-x.online?cc=amrita@vyom-x.online,sudhir@vyom-x.online";
+
   return (
     <footer className="footer-section">
       <div className="footer-container">
@@ -50,9 +54,9 @@ function Footer() {
           </ul>
         </div>
 
-        {/* कॉलम 4: सोशल मीडिया & Careers */}
+        {/* कॉलम 4: सोशल मीडिया & Careers & Support */}
         <div className="footer-column">
-          <h3 className="footer-heading">Follow Us</h3>
+          <h3 className="footer-heading">Connect With Us</h3>
           <div className="social-links">
             <a 
               href="https://www.linkedin.com/in/sudhir-kumar-tiwari-902453257" 
@@ -66,12 +70,21 @@ function Footer() {
               </svg>
               LinkedIn
             </a>
-            {/* 🚀 Careers Email जोड़ा गया */}
+            
+            {/* 🚀 Careers Email */}
             <a href="mailto:careers@vyom-x.online" style={{ display: 'flex', alignItems: 'center', gap: '8px', marginTop: '10px' }}>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
                 <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
               </svg>
               Careers
+            </a>
+
+            {/* 🚀 Support Team Email (3 लोगों को एक साथ मेल जाएगा) */}
+            <a href={supportTeamMail} style={{ display: 'flex', alignItems: 'center', gap: '8px', marginTop: '10px' }}>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+              </svg>
+              Support Team
             </a>
           </div>
         </div>
@@ -82,9 +95,8 @@ function Footer() {
       <div className="footer-bottom">
         <p>&copy; {new Date().getFullYear()} VYOM-X. All rights reserved.</p>
         
-        {/* 🚀 प्रोफेशनल टेक्स्ट और ईमेल लिंक */}
         <div className="footer-bottom-right">
-          <a href="mailto:careers@vyom-x.online" className="careers-link">careers@vyom-x.online</a>
+          <a href={supportTeamMail} className="careers-link">support@vyom-x.online</a>
           <p className="made-with">Engineering the Future</p>
         </div>
       </div>
